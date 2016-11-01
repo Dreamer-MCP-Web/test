@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			div{width: 200px;height: 40px;font-size: 20px;;line-height: 40px;color: red;background: #CCCCCC;margin: 2px;text-align:center}
+		</style>
+		<script src="../day17-运动/animate.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var div=document.getElementsByTagName("div");
+				for(var i=0;i<div.length;i++)
+				{
+					div[i].onmouseover=function()
+					{
+						//move(this,"width",240,50);
+						move(this,"margin-left",42,50)
+					}
+					div[i].onmouseout=function()
+					{
+						move(this,"margin-left",2,50)
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>电视机</div>
+		<div>饮水机</div>
+		<div>油烟机</div>
+		<div>洗衣机</div>
+		<div>手机</div>
+	</body>
+</html>

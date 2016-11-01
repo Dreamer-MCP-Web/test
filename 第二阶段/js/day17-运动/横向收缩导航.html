@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			li{list-style: none;}
+			a{text-decoration: none;color: black;display: block;}
+			#nav{position: relative;left: 50%;top: 100px;width:400px ;height: 30px;font-size: 20px;line-height: 30px;text-align: center;}
+			#nav li{float: left;background: greenyellow;width:80px ;}
+			#nav a:hover{background: pink}
+			.nav2{position: absolute;top: 29px;width: 80px;height: 0;overflow: hidden;}
+			.nav2 li{width: 80px;height: 30px;}
+			#nav .nav2 li:hover{background: pink;}
+		</style>
+		<script src="animate.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var nav=document.getElementById("nav");
+				var li=document.getElementsByClassName("nav1");
+				var nav2=document.getElementsByClassName("nav2");
+				for(var i=0;i<li.length;i++)
+				{
+					li[i].index=i;
+					li[i].onmouseover=function()
+					{
+						move(nav2[this.index],"height",150,50);
+					}
+					li[i].onmouseout=function()
+					{
+						move(nav2[this.index],"height",0,50)
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="nav">
+			<li class="nav1">
+				<a href="#">手机</a>
+				<ul class="nav2">
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+				</ul>
+			</li>
+			<li class="nav1">
+				<a href="#">电视</a>
+				<ul class="nav2">
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+				</ul>
+			</li>
+			<li class="nav1">
+				<a href="#">电脑</a>
+				<ul class="nav2">
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+				</ul>
+			</li>
+			<li class="nav1">
+				<a href="#">相机</a>
+				<ul class="nav2">
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+					<li>1111</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

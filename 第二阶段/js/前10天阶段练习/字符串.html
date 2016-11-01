@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+	window.onload=function()
+	{
+		var str="abcdfgfabcAbc";
+		//alert(str.indexOf("abc"));//返回字符串第一次出现的位置下标。
+		//alert(str.lastIndexOf("abc"));//返回字符串最后一次出现的位置的下标。没找到则返回-1
+		//alert(str.search("Abc"))//返回第一次出现的位置，没找到则返回-1
+		//alert(str.match(/abc/g))//将匹配的内容存入数组,g表示进行全局匹配，否则只能匹配一次
+		//alert(str.replace("a","A"))//将字符串中的第一个a替换为A
+		//alert(str.replace(/a/g,"A"))//将字符串中的所有a替换为A，返回整个字符串
+		//alert(str.substring(3,5));str.substring(start,stop)//截取下标为3的字符之后的字符串，不包括3，数值不能为负值	
+		//alert(str.substr(3,5))//str.substr(start,length)  数值为负值，则从后开始算起
+		//alert(str.split("c"))//根据分隔符拆分成数组，把c删除掉
+		
+		//给定任意字符串，统计其中的大小写字母的个数
+		/*var txt1=document.getElementById("txt1");
+		var btn=document.getElementById("btn");
+		btn.onclick=function()
+		{
+			var str;
+			var m=0;
+			var n=0;
+			str=txt1.value;
+			for(var i=0;i<str.length;i++)
+			{
+				if(str.charCodeAt(i)<=90&&str.charCodeAt(i)>=65)
+				{m++;}
+				if(str.charCodeAt(i)<=122&&str.charCodeAt(i)>=97)
+				{n++;}
+			}
+			alert("大写字母有"+m+"个");
+			alert("小写字母有"+n+"个")
+		}
+	}	*/
+	</script>
+	<body>
+		<input type="text" id="txt1"/>
+		<input type="button" id="btn" value="统计"/>
+	</body>
+</html>

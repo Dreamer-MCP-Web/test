@@ -1,0 +1,32 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js.js"></script>
+<script type="text/javascript">
+	var a1=[2012,2,3];
+	var date1=a1.join("-");
+	var dates1=new Date(date1);
+	var date11=geshi(dates1);
+	document.write(date11+"<br/>");//将数组转换为日期
+	var a2=[2013,2,4];
+	var date2=a2.join("-");
+	var dates2=new Date(date2);
+	var date22=geshi(dates2); 
+	document.write(date22+"<br/>");
+	var num1=Date.parse(dates1);//计算出两个日期的毫秒数
+	var num2=Date.parse(dates2);
+	var dd=24*60*60*1000;//一天的毫秒数
+	var num3=Math.abs(num1-num2);//两个日期相差的毫秒数
+	//相差的天数
+	var diffdd=Math.floor(num3/dd);
+	document.write("相差的天数为"+diffdd);
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+</head>
+
+<body>
+当前时间：<input type="text" id="txt1" value=""/><br/><br/>
+<input type="button" id="btn" value="计算"/><br/><br/>
+N天后时间为：<input type="text" id="txt2" value="" /><br/><br/>
+</body>
+</html>
+<script type="text/javascript">
+	var s=prompt("请输入一个天数",0)*1000*60*60*24;//输入的时间转换为毫秒。
+	var btn=document.getElementById("btn");
+	
+	btn.onclick=function()
+	{
+		var date=new Date();//获取系统当前时间。
+		document.getElementById("txt1").value=date;	
+		
+		date.setTime(s+date.getTime());
+		
+		document.getElementById("txt2").value=date;
+		
+	}
+	
+</script>

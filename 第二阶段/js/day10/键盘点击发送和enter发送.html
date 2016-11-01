@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#txt1{font-size: 20px;width: auto;height: 100px;}
+		</style>
+		<script type="text/javascript">
+		window.onload=function()
+		{
+			var txt1=document.getElementById("txt1");
+			var txt2=document.getElementById("txt2");
+			var btn=document.getElementById("btn");
+			//点击发送按钮发送消息
+			var str="";
+			btn.onclick=function()
+			{
+				//获取消息
+				var info=txt2.value;
+				//把消息传给文本域
+				str=str+info+"\n";
+				txt1.innerHTML=str;
+				//情况发送框中的消息
+				txt2.value="";
+			}
+			//键盘按下enter时发送
+			txt2.onkeydown=function(ev)
+			{
+				var oev=ev||event;
+				if(oev.keyCode==13)
+				{
+					//获取消息
+					var info=txt2.value;
+					//把消息传给文本域
+					str=str+info+"\n";
+					txt1.innerHTML=str;
+					//情况发送框中的消息
+					txt2.value="";
+				}
+			}
+		}
+			
+		</script>
+	</head>
+	<body>
+		<textarea name="" rows="" cols="" id="txt1"></textarea><br/>
+		<input type="text" name="" id="txt2" value="" />
+		<input type="button" name="btn" id="btn" value="发送" />
+	</body>
+</html>

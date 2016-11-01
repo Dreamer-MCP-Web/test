@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#outer{position: absolute;left: 300px;top: 200px;width: 680px;height:344px;border: 2px solid red;}
+			#inner{position: absolute;height: 344px;}
+			img{list-style: none;width: 680px;height: 344px;float: left;}
+			#btn{position: absolute;left:530px;top: 500px;}
+			#btn div{float: left;width: 20px;height: 20px;border-radius: 50%;background: #CCCCCC;margin: 20px;font-size: 18px;line-height: 20px;text-align: center;cursor: pointer;}
+			#btn .active{background: yellow;}
+			#btn2 div{width: 40px;height: 40px;background: #CCCCCC;color: red;font-size: 30px;line-height: 40px;text-align: center;opacity: 0.5;cursor: pointer;}
+			.left{position: absolute;left: 300px;top: 360px;}
+			.right{position: absolute;left: 940px;top: 360px;}
+		</style>
+		<script src="../day17-运动/animate.js"></script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner">
+				<img src="../day14/images/1.jpg"/>
+				<img src="../day14/images/2.jpg"/>
+				<img src="../day14/images/3.jpg"/>
+				<img src="../day14/images/4.jpg"/>
+				
+			</div>			
+		</div>
+		<div id="btn">
+			<div class="active">1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		<div id="btn2">
+			<div class="left"><</div>
+			<div class="right">></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var outer=document.getElementById("outer");
+		var inner=document.getElementById("inner");
+		var imgs=document.getElementsByTagName("img");
+		var index=0; //记录当前下标
+		var imgWidth=imgs[0].offsetWidth;
+		inner.style.width=imgs.length*imgWidth+"px";
+		var timer=setInterval(goLeft,2000)
+		function goLeft()
+		{
+			index++;
+			if(index==imgs.length)
+			{
+				index=0;
+			}
+			for(var i=0;i<imgs.length;i++)
+			{
+				if(index==imgs[i].getAttribute("sn"))
+				{
+					inner.insertBefore(imgs[i],imgs[1]);
+					break;
+				}
+			}
+			 move4(inner,{left:-imgWidth},fn,50);
+		}
+		function fn()
+			 {
+			 	inner.appendChild(imgs[0]);
+			 	inner.style.left=0;			 	
+			 	
+			 }
+		function goRight()
+		{
+			inner.insertBefore(imgs[imgs.length-1],imgs[0])
+			inner.style.left=-imgWidth+"px";
+			move4(inner,{left:0});
+			if(index==0)
+			{
+				index=imgs.length;
+			}
+			index--;
+		}
+	</script>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input{width: 50px;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var otab=document.getElementById("tab1");
+				//表格的编辑
+				for(var i=0;i<otab.tBodies[0].rows.length;i++)
+				{
+					
+					for(var j=0;j<otab.tBodies[0].rows[i].cells.length;j++)
+					{
+						otab.tBodies[0].rows[i].cells[j].onclick=function()
+						{
+							var oput=otab.tBodies[0].getElementsByTagName("input");//点击时获取是否有input标签
+								//console.log(oput.length);
+							if(oput.length==0)
+							{
+							
+							
+								if(!this.firstElementChild) //不存在子节点
+								{
+									//创建一个input标签
+									
+									var oput=document.createElement("input");
+									oput.value=this.innerHTML; //把表格中的值赋给input标签
+									this.innerHTML="";
+									this.appendChild(oput);  //把input标签插入到表格中
+								}							
+							}
+						
+						}
+						otab.tBodies[0].rows[i].cells[j].onkeydown=function(ev)
+						{
+							var ev=ev||event;
+							if(this.firstElementChild)  //存在子节点
+							{
+								if(ev.keyCode==13)
+								{
+									this.innerHTML=this.firstElementChild.value; //把input中的value赋值给表格
+								}
+								
+							}
+						}
+					}
+				}
+				//表格的搜索
+				var txt=document.getElementById("txt");
+				var btn=document.getElementById("btn1");
+				/*btn1.onclick=function()//搜索一个值   只能输入一个字符
+				{					
+					var ctxt=txt.value;
+					for(var i=0;i<otab.tBodies[0].rows.length;i++)
+					{
+						otab.tBodies[0].rows[i].style.background=""; //把样式清空
+						var cname=otab.tBodies[0].rows[i].cells[1].innerHTML;
+						if(cname.indexOf(ctxt)!=-1&&ctxt!="")  //找到了
+						{
+							otab.tBodies[0].rows[i].style.background="red";
+						}
+					}
+				}*/
+				btn1.onclick=function()//搜索多个值   可以输入多个字符  用空格分割   
+				{						
+					var ctxt=txt.value.split(" ");		//获取输入的值并转换为数组	
+					/*for(var j=0;j<ctxt.length;j++)   //存在bug ，只会让后面字符的搜索起作用，因为后面字符在搜索时又把样式给清空了
+					{
+						
+						for(var i=0;i<otab.tBodies[0].rows.length;i++)
+						{
+							otab.tBodies[0].rows[i].style.background=""; //把样式清空
+							var cname=otab.tBodies[0].rows[i].cells[1].innerHTML;
+							if(cname.indexOf(ctxt[j])!=-1&&ctxt!="")  //找到了
+							{
+								otab.tBodies[0].rows[i].style.background="red";
+							}
+						}	
+					}*/
+					for(var i=0;i<otab.tBodies[0].rows.length;i++)                    
+					{
+						otab.tBodies[0].rows[i].style.background=""; //把样式清空
+						for( var j=0;j<ctxt.length;j++)
+						{							
+							var cname=otab.tBodies[0].rows[i].cells[1].innerHTML;
+							if(cname.indexOf(ctxt[j])!=-1&&ctxt!="")  //找到了
+							{
+								otab.tBodies[0].rows[i].style.background="red";
+							}
+						}	
+					}
+				
+					
+				}
+				//表格的隔行换色
+				for(var i=0;i<otab.tBodies[0].rows.length;i++)
+				{
+					if(i%2==0)
+					{
+						otab.tBodies[0].rows[i].style.background="yellow";
+					}
+				}
+				//新增表格
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="txt" value="" />
+		<input type="button" name="btn1" id="btn1" value="搜索" />
+		<table id="tab1" border="1" cellspacing="0" width="300" height="300">
+			<thead>
+				<td>编号</td>
+				<td>名字</td>
+				<td>年龄</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>张李四</td>
+					<td>21</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>王五</td>
+					<td>23</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>刘六</td>
+					<td>24</td>
+				</tr>	
+				<tr>
+					<td>5</td>
+					<td>晨曦</td>
+					<td>18</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</body>
+</html>

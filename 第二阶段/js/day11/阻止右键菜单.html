@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#menu{
+				position: absolute;left: 0;top: 0;width: 150px;height: 200px;background: #ccc;display: none;
+			}
+			ul li:hover{
+				background: pink;
+			}
+			li{
+				width: 100%;height: 40px;text-align: center;list-style: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				document.oncontextmenu=function()
+				{
+					return false;
+				}
+				var odiv=document.getElementById("menu");
+				document.onmousedown=function(ev)
+				{
+					ev=ev||window.event;
+					if(ev.button==2)
+					{
+						odiv.style.display="block";
+						odiv.style.left=ev.clientX+"px";
+						odiv.style.top=ev.clientY+"px";
+					}
+					else{
+						odiv.style.display="none";
+					}
+				odiv.onmousedown=function(ev)
+				{
+					ev=ev||event;
+					if(ev.button==0)
+					{
+						odiv.style.display="block"
+					}
+					ev.stopPropagation();
+				}
+				}
+				
+				
+					
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="menu">
+			<ul>
+				<li><a href="javascrpit:;">查看源代码</a></li>
+				<li><a href="javascrpit:;">查看背景</a></li>
+				<li><a href="javascrpit:;">查看时间</a></li>
+				<li><a href="#">查看照片</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

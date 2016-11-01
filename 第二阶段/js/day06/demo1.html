@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text" id="txt" value=""/>
+<input type="button" id="btn" value="判断"/>
+</body>
+</html>
+<script type="text/javascript">
+var btn=document.getElementById("btn");
+btn.onclick=function()
+{var t=document.getElementById("txt").value;
+
+	if(t.length<1)
+	{
+		alert("用户名不能为空");
+	}
+	else if(t.charCodeAt(0)<=57&&t.charCodeAt(0)>=48)
+	{
+		alert("用户名第一个不能为数字");
+	}
+	else {
+			var s;
+			for(var i=0;i<t.length;i++)
+			
+			{	
+				var a=t.charCodeAt(i);
+				if((a<=57&&a>=48)||(a<=122&&a>=97)||(a<=90&&a>=65)||a==36||a==95)
+				{
+					s=true;;
+				}
+				else{
+						s=false;
+					}
+			}
+			if(s==true)
+			{alert("合法")}
+			else alert("不合法");
+		}
+}
+</script>

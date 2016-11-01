@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding: 0;}
+			a{text-decoration: none;color: black;}
+			#div1{position: absolute;width: 30px;height: 150px;font-size:30px;line-height:75px;text-align:center;background: red;}
+			ul{position: absolute;left:-70px;width: 100px;height: 150px;overflow: hidden;}
+			li{width:100px;height: 30px;font-size: 20px;line-height: 30px;list-style: none;background: blue;text-align: center;}
+		</style>
+	</head>
+	<script src="animate.js"></script>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			var oul=document.getElementsByTagName("ul")[0];
+			var div1=document.getElementById("div1");
+			//匀速
+			div1.onmouseover=function()
+			{
+				move2(oul,"left",30,70,10);
+			}
+			div1.onmouseout=function()
+			{
+				move2(oul,"left",-70,70,-10)
+			}
+			//变速缓冲
+			/*div1.onmouseover=function()
+			{
+				move(oul,"left",30,70);
+			}
+			div1.onmouseout=function()
+			{
+				move(oul,"left",-70,70)
+			}*/
+		}
+	</script>
+	<body>
+		
+		<ul>
+			<li><a href="#">手机</a></li>
+			<li><a href="#">电脑</a></li>
+			<li><a href="#">电视</a></li>
+			<li><a href="#">相机</a></li>
+			<li><a href="#">音响</a></li>
+			
+		</ul>
+		<div id="div1">
+			导航
+		</div>
+	</body>
+</html>

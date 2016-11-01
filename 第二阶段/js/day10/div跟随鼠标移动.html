@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{width: 100px;height: 100px;background: red;position: absolute;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var div1=document.getElementById("div1");
+				window.onmousemove=function(ev)
+				{
+					var oev=ev||event;
+					div1.style.left=oev.clientX+"px";
+					div1.style.top=oev.clientY+"px";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#outer{position: absolute;left: 300px;top: 200px;width: 400px;height: 260px;}			
+			#inner img{position: absolute;left: 0;top: 0;width: 400px;height: 260px;}
+			#thumb{position: relative;left: 100px;top: 50px;height: 40px;border: 1px solid red;}
+			#thumb ul{list-style: none;}
+			#thumb ul li{width: 40px;height: 40px;float: left;border: 1px solid red;}
+			#prev{position: absolute;left: 20px;top: 110px;width: 40px;height: 40px;background: #ccc;display: none;}
+			#next{position: absolute;right: 20px;top: 110px;width: 40px;height: 40px;background: #ccc;display: none;}
+		</style>
+		<script src="../jquery-1.12.4.js"></script>
+		<!--<script type="text/javascript">
+			$(function()
+			{
+				var $img=$("#outer img");
+				//console.log($img);
+				var k=0;
+				var timer=setInterval(fn1,3000);
+				/*$(document).click(function(){
+					fn1();
+				});*/
+				//点击缩略图事件
+				$("#thumb li").click(function()
+				{
+					clearInterval(timer);
+					//获取当前缩略图的下标
+					k=$(this).index();
+					console.log(k);
+					//调用play函数，修改出现的图片
+					play(k);
+					timer=setInterval(fn1,3000);
+				});
+				//划入划出事件
+				$("#outer").hover(function()
+				{
+					clearInterval(timer);   //鼠标停留在图片上时清除定时器，让图片静止
+					$("#prev").show();     //让左右图标显示出来
+					$("#next").show();
+				},function()
+				{
+					$("#prev").hide();       //鼠标移出时，让左右图标消失，开启自动轮播
+					$("#next").hide();
+					timer=setInterval(fn1,3000);
+				})
+				//左右按钮事件
+				$("#prev").click(function()
+				{
+					k--;
+					console.log(k);
+					if(k==-1)  //点击的是第一张图片
+					{
+						k=$img.size()-1;  
+					}
+					play(k);
+				});
+				$("#next").click(function()
+				{
+					k++;
+					console.log(k);					
+					if(k==$img.size())
+					{
+						k=0;
+					}
+					play(k);
+				})
+				//公告函数
+				function fn1()
+				{
+					k++;
+					if(k==5)
+					{
+						k=0;
+					}
+					//console.log(k);
+					play(k);
+				}
+				function play(k)   //改变图片透明度的函数
+				{
+					//修改第k张的透明度为1；其他张为0；
+					$img.eq(k).stop().animate({opacity:1}).siblings().stop().animate({opacity:0});//改变图片的透明度
+					$("#thumb li").eq(k).css({background:"yellow"}).siblings().css({background:""});//改变缩略图的背景颜色
+				}
+			})
+		</script>-->
+		<script type="text/javascript">
+			$(function()
+			{
+				var $img=$("img");
+				var $prev=$("#prev");
+				var $next=$("#next");
+				var $outer=$("#outer");
+				var $li=$("#thumb li");
+				var k=0;
+				//公共函数
+				function fn1(k)
+				{
+					k++;
+					if(k==$img.size())
+					{
+						k=0;
+					}
+					if(k=-1)
+					{
+						k=$img.size()-1;
+					}
+					$img.eq(k).stop().animate({opacity:1}).siblings().stop().animate({opacity:0});//改变图片的透明度
+					$("#thumb li").eq(k).css({background:"yellow"}).siblings().css({background:""});//改变缩略图的背景颜色
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner">
+				<img src="img/1.jpg"/>
+				<img style="opacity: 0;" src="img/2.jpg"/>
+				<img style="opacity: 0;" src="img/3.jpg"/>
+				<img style="opacity: 0;"  src="img/4.jpg"/>
+				<img style="opacity: 0;"  src="img/5.jpg"/>
+				
+			</div>
+				<div id="prev">&lt;</div>
+				<div id="next">&gt;</div>
+		</div>
+		<div id="thumb">
+			<ul>
+				<li style="background: yellow;"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

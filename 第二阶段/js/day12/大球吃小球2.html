@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding: 0;}
+			#big{background: pink;width: 100px;height: 100px;border-radius: 50%;position: absolute;left: 100px;top: 100px;}
+			.ssamll{background: greenyellow;width: 50px;height: 50px;border-radius: 50%;position: absolute;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				
+				var big=document.getElementById("big");	
+				//产生小球的函数；
+				function getSmall()
+				{
+					small=document.createElement("div");
+					small.className="ssamll";
+					small.style.left=Math.floor(Math.random()*document.documentElement.clientWidth)+"px";
+					small.style.top=Math.floor(Math.random()*document.documentElement.clientHeight)+"px";
+					console.log(document.documentElement.clientHeight);
+					document.documentElement.appendChild(small);
+				}
+				getSmall();
+				
+				document.onkeydown=function(ev)
+				{
+					ev=ev||event;
+					
+					
+				
+						if(ev.keyCode==37)
+						{
+							big.style.left=big.offsetLeft-20+"px";
+						}
+						if(ev.keyCode==38)
+						{
+							big.style.top=big.offsetTop-20+"px";
+						}
+						if(ev.keyCode==39)
+						{
+							big.style.left=big.offsetLeft+20+"px";
+						}
+						if(ev.keyCode==40)
+						{
+							big.style.top=big.offsetTop+20+"px";
+						}
+						
+				
+						
+				
+				
+					//让大小球碰到一起时，大球吃掉小球
+					var num=0;//大球和小球圆心之间的距离
+					var dr=small.offsetWidth/2+big.offsetWidth/2;//两个球的半径之和
+					console.log(dr);
+					var x=(small.offsetLeft+small.offsetWidth/2)-(big.offsetLeft+big.offsetWidth*0.5);
+					var y=(small.offsetTop+small.offsetHeight/2)-(big.offsetTop+big.offsetHeight*0.5);
+					var num=Math.sqrt(x*x+y*y);
+					var t="";
+					console.log(num);  //测试num的值是否正确   正确
+					if(num<=dr)
+					{
+						small.style.display="none";
+						big.style.width=big.offsetWidth+50+"px";
+						big.style.height=big.offsetHeight+50+"px"
+					}
+					//如果没有小球，则随机产生一个小球。
+					if(!small.offsetHeight)
+					{
+						getSmall();
+					}
+					console.log(document.documentElement.children.length);
+					var maxL=document.documentElement.clientWidth-big.offsetWidth;
+					var maxT=document.documentElement.clientHeight-big.offsetHeight;
+					//让大球随着键盘的按键移动
+					
+					
+					//限定移动范围
+					if(big.offsetLeft<0)
+					{
+						big.style.left=0;
+					}
+					if(big.offsetTop<0)
+					{
+						big.style.top=0;
+					}
+					if(big.offsetLeft>=maxL)
+					{
+						big.style.left=maxL+"px";
+					}
+					if(big.offsetTop>=maxT)
+					{
+						big.style.top=maxT+"px";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="big"></div>
+	</body>
+</html>

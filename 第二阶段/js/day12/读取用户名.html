@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="doCookie.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var odiv=document.getElementById("div1");
+				if(getCookie("zhanghao"))
+				{
+					odiv.innerHTML="欢迎"+getCookie("zhanghao")+"光临！您上次的登录时间为："+getCookie("time");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">aaa</div>
+	</body>
+</html>

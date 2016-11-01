@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			//alert(document.getElementById("box").attributes)//获取节点属性，返回namedNodeMap
+			//alert(document.getElementById("box").attributes.length)//返回节点属性的个数
+			//alert(document.getElementById("box").attributes[0].nodeType)//返回节点属性的类型，1 元素 2属性 3 文本
+			//alert(document.getElementById("box").attributes[0].nodeName)//返回节点属性的名称
+			//alert(document.getElementById("box").attributes["id"].nodeValue)//通过节点的名称返回节点属性的值
+			alert(document.getElementById("box").attributes.getNamedItem("id").nodeValue)//通过节点的名称返回节点属性的值
+		}
+	</script>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

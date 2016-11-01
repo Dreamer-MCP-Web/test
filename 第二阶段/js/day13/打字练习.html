@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{position: absolute;left: 50%;top: 50%;margin-left: -250px;margin-top:-250px ;background: #CCCCCC;width: 500px;height: 500px;}
+			.div2{position: absolute;width: 30px;height: 30px;background: #ADFF2F;font-size: 18px;line-height: 30px;text-align: center;border-radius: 50%;}
+			#btn{position: absolute;left: 50%;top: 50%;margin-top: 250px;margin-left:-250px;width: 500px;}
+			#score{position: absolute;left: 50%;top: 105px;width: 30px;height: 20px;font-size:18px ;line-height: 20px;background: red;margin-left: -250px;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				//获取控件
+				var btn=document.getElementById("btn");
+				var btn2=document.getElementById("btn2");
+				var tTimer="";
+				var xTimer="";
+				btn.onclick=function()
+				{
+					var Score=document.getElementById("score");
+					Score.innerHTML=0;
+					var div1=document.getElementById("div1");
+					div1.innerHTML="";					
+					var arr=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+					var maxL=div1.offsetWidth-30;
+					
+					var num=0;
+					var speed=5;//速度
+					var score=0;//得分
+					maxT=div1.offsetHeight-30;
+					clearInterval(tTimer);
+					clearInterval(xTimer);
+					//每隔一段时间，自动生成一个div
+					tTimer=setInterval(function(){
+						var div2=document.createElement("div");//创建一个div
+						div2.className="div2";//设置div的class名字为div2
+						div2.innerHTML=arr[Math.floor(Math.random()*26)];//让div2中的内容随机为26个字母中的一个
+						div2.style.left=Math.random()*maxL+"px";//div2产生的位置随机
+						div2.style.color="#"+Math.floor(Math.random(16581375)).toString(16);
+						div1.appendChild(div2);									
+					},500)
+					//div每隔一段时间自动下落一段距离
+					xTimer=setInterval(function()
+					{
+						
+						var div2=document.getElementsByClassName("div2");
+						//console.log(div2);
+						//console.log(div2[0].style.left);
+						for(var i=0;i<div2.length;i++)
+						{
+							div2[i].style.top=div2[i].offsetTop+speed+"px";
+							if(div2[i].offsetTop>=maxT)
+							{
+								  alert("游戏失败!");
+								location.reload(true);
+							}
+						}										
+					},70)
+					document.onkeydown=function(ev)
+					{
+						var div2=document.getElementsByClassName("div2");
+						ev=ev||event;
+						for(var i=0;i<div2.length;i++)
+						{
+									
+									if(div2[i].innerHTML.charCodeAt(0)==ev.keyCode)
+									{
+										div1.removeChild(div2[i]);
+										num++;							
+										score++;//得分增加
+										Score.innerHTML=score;
+										//console.log(score.innerHTML);
+										
+										//console.log(num);
+										
+										if(num>10)
+											{
+												speed=speed+1;
+												num=0;
+											}
+										return;
+									}
+						}
+						
+					}
+					
+				}
+				btn2.onclick=function()
+				{
+					clearInterval(tTimer);
+					clearInterval(xTimer);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="score"></div>
+		<input type="button" id="btn" value="开始游戏"/>
+		<input type="button" id="btn2" value="暂停游戏"/>
+	</body>
+</html>

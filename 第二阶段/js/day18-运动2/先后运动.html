@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			div{width: 100px;height: 100px;background: red;position: absolute;}
+		</style>
+		<script src="../day17-运动/animate.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var div=document.getElementsByTagName("div")[0];
+				div.onclick=function()
+				{
+					/*move3(div,"width",500,50,function()
+					{
+						move3(div,"height",500,50)
+					})*/
+					/*fn0();
+					function fn0()
+					{
+						move3(div,"left",500,50,fn1);
+					}
+					
+					function fn1()
+					{
+						move3(div,"top",500,50,fn2);
+					}
+					function fn2()
+					{
+						move3(div,"left",0,50,fn3);
+					}
+					function fn3()
+					{
+						move3(div,"top",0,50,fn0)
+					}*/
+					fn0();
+					function fn0()
+					{
+						move4(div,{left:500,top:500},50,fn1);
+					}
+					function fn1()
+					{
+						move4(div,{left:0,top:0},50,fn0);
+					}
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

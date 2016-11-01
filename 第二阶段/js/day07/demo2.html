@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<script type="text/javascript">
+//获取系统时间
+var date=new Date();
+//获取系统年份；
+document.write(date.getFullYear()+"年"+"<br/>");
+//获取月份
+document.write(date.getMonth()+1+"月"+"<br/>");//月份从0开始，最大为11
+//获取日期
+document.write(date.getDate()+"日"+"<br/>");//最大为31
+//获取小时
+document.write(date.getHours()+"时"+"<br/>");
+//获取分钟
+document.write(date.getMinutes()+"分"+"<br/>");
+//获取秒钟
+document.write(date.getSeconds()+"秒"+"<br/>");
+//获取毫秒
+document.write(date.getMilliseconds()+"毫秒");
+setInterval(
+function()
+{
+	var date=new Date();
+//获取系统年份；
+document.write(date.getFullYear()+"年"+"<br/>");
+//获取月份
+document.write(date.getMonth()+1+"月"+"<br/>");//月份从0开始，最大为11
+//获取日期
+document.write(date.getDate()+"日"+"<br/>");//最大为31
+//获取小时
+document.write(date.getHours()+"时"+"<br/>");
+//获取分钟
+document.write(date.getMinutes()+"分"+"<br/>");
+//获取秒钟
+document.write(date.getSeconds()+"秒"+"<br/>");
+
+}
+,1000);
+</script>

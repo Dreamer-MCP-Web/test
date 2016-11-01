@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var txt1=document.getElementById("txt1");
+			var btn=document.getElementById("btn1");
+			var tab=document.getElementById("tab1");			
+			btn.onclick=function()
+			{
+				
+				//获取文本框中输入的值并转换为小写
+				var ctxt=txt1.value.toLowerCase();
+				var arr=ctxt.split(" ");//把输入的多个值转换为数组保存起来
+				for(var i=0;i<tab.tBodies[0].rows.length;i++)
+				{
+					//获取表格中的姓名td并转换为小写
+					var cname=tab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+					if(cname.search(ctxt)!=-1)
+					{
+						
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<input type="button" name="btn1" id="btn1" value="搜索" />
+		<table border="1" cellspacing="0" id="tab1">
+			<thead>
+				<td>编号</td>
+				<td>名字</td>
+				<td>年龄</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>王五</td>
+					<td>33</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>李四</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>李小李</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>李期</td>
+					<td>22</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

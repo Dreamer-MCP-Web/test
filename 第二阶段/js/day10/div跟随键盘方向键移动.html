@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{width: 100px;height: 100px;background: red;position: absolute;left: 400px;top: 400px;}
+		</style>
+		<script type="text/javascript">
+		window.onload=function()
+		{
+			var div1=document.getElementById("div1");
+			window.onkeydown=function(ev)
+			{
+				var oev=ev||event;
+				if(ev.keyCode==37)
+				{div1.style.left=div1.offsetLeft-10+"px";}
+				if(ev.keyCode==38)
+				{div1.style.top=div1.offsetTop-10+"px";}
+				if(ev.keyCode==39)
+				{div1.style.left=div1.offsetLeft+10+"px";}
+				if(ev.keyCode==40)
+				{div1.style.top=div1.offsetTop+10+"px";}
+			}
+		}	
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+</html>

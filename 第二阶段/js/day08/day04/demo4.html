@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>皮肤切换</title>
+<link id="cs" rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+<input type="button" id="btn1" value="皮肤1" onClick="change1()"/>
+<input type="button" id="btn2" value="皮肤2" onClick="change2()"/>
+
+</body>
+</html>
+<script type="text/javascript">
+var s=document.getElementById("cs");
+	function change1()
+	{
+		s.href="css/style.css";
+	}
+	function change2()
+	{
+		s.href="css/style2.css";
+	}
+</script>

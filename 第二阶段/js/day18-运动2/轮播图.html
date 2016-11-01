@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>			
+		<style type="text/css">
+			*{margin:0;padding:0}
+			#outer{position:absolute;left:400px;top:300px;width:178px;overflow:hidden;height:108px;border: 1px solid red;}
+			#inner{position: absolute;width: 1000px;}
+			img{float: left;width: 178px;height: 108px;}
+			#btn{position: absolute;left: 430px;top: 420px;}
+			ul li{float: left;list-style: none;width: 20px;border: 1px solid red;}
+			.active{background: yellow;}
+		</style>
+		<script type="text/javascript" src="../day17-运动/animate.js">
+			
+		</script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var inner=document.getElementById("inner");
+				var imgs=document.getElementsByTagName("img");
+				var imgWidth=imgs[0].offsetWidth;
+				var li=document.getElementsByTagName("li");
+				inner.style.width=imgWidth.length*imgWidth+"px";
+				var timer=setInterval(goLeft,2000);
+				var index=1;
+				for(var i=0;i<li.length;i++)
+				{
+						
+					li[i].index=i;
+					li[i].onclick=function()
+					{
+						clearInterval(timer);
+						move4(inner,{left:-this.index*imgWidth},5)
+						index=this.index+1;
+						timer=setInterval(goLeft,2000)
+						for(var j=0;j<li.length;j++)
+						{
+							li[j].className="";
+						}
+						this.className="active";
+					}
+				}
+				function goLeft()
+				{
+					
+				/*	if(index==imgs.length)
+					{
+						index=1;
+						inner.style.left=0;
+					}*/
+					move4(inner,{left:-index*imgWidth},50);
+					
+					/*for(var j=0;j<li.length;j++)
+					{
+						li[j].className="";
+					}
+									
+					var liIndex=index>3?0:index;
+					li[liIndex].className="active";*/
+					index++;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner">
+				<img src="../day10/img/1.jpg"/>
+				<img src="../day10/img/2.jpg"/>
+				<img src="../day10/img/3.jpg"/>
+				<img src="../day10/img/4.jpg"/>
+				<img src="../day10/img/1.jpg"/>
+			</div>
+		</div>
+		<div id="btn">
+			<ul>
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</body>
+</html>

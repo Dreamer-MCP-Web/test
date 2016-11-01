@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{width: 500px;height: 200px;background: blue;overflow: hidden;}
+			.active{background: red;margin-top: 50px;}
+		</style>
+	</head>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			//创建元素节点
+			var cdiv=document.createElement("div");
+			//改元素节点起个class名
+			cdiv.className="active";
+			//创建文本节点
+			var ctxt=document.createTextNode("beautiful IU");
+			//把文本节点追加到元素节点上
+			cdiv.appendChild(ctxt);
+			//获取div1
+			var div1=document.getElementById("div1");			
+			//把元素节点追加到div1上
+			div1.appendChild(cdiv);
+		}
+	</script>
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

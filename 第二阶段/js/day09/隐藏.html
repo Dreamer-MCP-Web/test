@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>adc<a href="javascript:;">隐藏</a></li>
+			<li>sup<a href="javascript:;">隐藏</a></li>
+			<li>top<a href="javascript:;">隐藏</a></li>
+			<li>middle<a href="javascript:;">隐藏</a></li>
+			<li>jungle<a href="javascript:;">隐藏</a></li>
+			<li>coach<a href="javascript:;">隐藏</a></li>
+		</ul>
+	</body>
+</html>
+<!--<script type="text/javascript">
+	//获取ul元素
+	var ul=document.getElementsByTagName("ul")[0];
+	//获取ul中的a标签
+	var oA=ul.getElementsByTagName("a");
+	//循环每个a标签
+	for(var i=0;i<oA.length;i++)
+	{
+		oA[i].onclick=function()
+		{
+			this.parentNode.style.display="none";
+		}
+	}
+</script>-->
+<script type="text/javascript">
+	window.onload=function()
+	{
+		var oul=document.getElementsByTagName("ul")[0];
+		var li=document.getElementsByTagName("li");
+		var oa=document.getElementsByTagName("a");
+		for(var i=0;i<oa.length;i++)
+		{
+			oa[i].index=i;
+			oa[i].onclick=function()
+			{
+				//oul.removeChild(li[this.index]);
+				this.parentNode.style.display="none";
+			}
+		}
+	}
+</script>

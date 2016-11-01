@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#big{position: absolute;left: 200px;top: 200px;width: 100px;height: 100px;background: red;border-radius: 50%;}
+			#small{position: absolute;left: 300px;top: 300px;width: 50px;height: 50px;background: pink;border-radius: 50%;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var big=document.getElementById("big");
+				var small=document.getElementById("small");
+				var speed=5;//移动速度
+				var maxL=document.documentElement.clientWidth-small.offsetWidth;
+				var maxT=document.documentElement.clientHeight-small.offsetHeight;
+				document.onkeydown=function(ev)
+				{
+					ev=ev||event;
+					var code=ev.keyCode||ev.which;
+					var small=document.getElementById("small");
+					switch(code)
+					{
+						case 37:big.style.left=big.offsetLeft-speed+"px";break;
+						case 38:big.style.top=big.offsetTop-speed+"px";break;
+						case 39:big.style.left=big.offsetLeft+speed+"px";break;
+						case 40:big.style.top=big.offsetTop+speed+"px";break;
+					}
+					//大球半径
+					var bigR=big.offsetWidth/2;
+					//小球半径
+					var smallR=small.offsetWidth/2;
+					//大球的圆心坐标
+					big.centerX=bigR+big.offsetLeft;
+					big.centerY=bigR+big.offsetTop;
+					//小球的圆心坐标
+					small.centerX=smallR+small.offsetLeft;
+					small.centerY=smallR+small.offsetTop;
+					var distance=Math.pow(big.centerX-small.centerX,2)+Math.pow(big.centerY-small.centerY,2);
+					distance=Math.sqrt(distance);//两个圆心的直线距离。
+					var differ=distance-bigR-smallR;//圆心的距离-半径和
+					if(differ<=0)
+					{
+						console.log(small);
+						document.body.removeChild(small);//移出小球
+						//改变大球的半径
+						big.style.width=big.style.height=big.offsetHeight+speed+"px";
+						setTimeout(function()
+						{//重新生成小球
+							var mall=document.createElement("div");
+							mall.id="small";
+							mall.style.left=Math.random()*maxL+"px";
+							mall.style.top=Math.random()*maxT+"px";
+							document.body.appendChild(mall);
+						},500)
+					}
+				}
+			
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="big"></div>
+		<div id="small"></div>
+	</body>
+</html>

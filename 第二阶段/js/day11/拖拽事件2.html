@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{width: 106px;height: 106px;background: gold;position: absolute;}
+		</style>
+		<script type="text/javascript" src="../day12/doCookie.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{				
+				var img=document.getElementsByTagName("img")[0];
+				var btn=document.getElementById("btn");
+				var path=[];
+				//获取cookie
+				if(getCookie("left"))
+				{
+					img.style.left=getCookie("left")+"px";
+					img.style.top=getCookie("top")+"px";
+				}
+				
+				//选中要拖拽的元素，把flag设置为true，并求出此时鼠标相对于元素的偏移量。
+				img.onmousedown=function(ev)
+				{
+					ev=ev||event;
+					img.flag=true;
+					img.offx=ev.clientX-img.offsetLeft;
+					img.offy=ev.clientY-img.offsetTop;
+					//阻止浏览器的默认行为
+					//非IE8及以下
+					if(ev.preventDefault)
+					{
+						ev.preventDefault();
+					}
+					else{ev.returnValue=false;}
+				}
+			
+				
+				//当鼠标移动时，设置要移动元素的left和top值。
+				document.onmousemove=function(ev)
+				{
+					ev=ev||event;
+					
+					if(img.flag)
+					{
+						//鼠标当前的坐标减去鼠标相对于元素的偏移量。
+					
+						var left=ev.clientX-img.offx;
+						var top=ev.clientY-img.offy;
+						
+						var maxLeft=document.documentElement.clientWidth-img.offsetWidth;
+						var maxTop=document.documentElement.clientHeight-img.offsetHeight;
+						
+						if(left<0)
+						{
+							left=0;
+						}
+						if(top<0)
+						{top=0}
+						if(left>=maxLeft)
+						{
+							left=maxLeft;
+						}
+						if(top>=maxTop)
+						{
+							top=maxTop;
+						}
+						img.style.left=left+"px";
+						img.style.top=top+"px";
+						//每次移动鼠标时，把元素的left和top值存放到path数组中。
+						path.push({x:left,y:top});						
+						var d=new Date();
+						d.setDate(d.getDate()+10);
+						document.cookie="left="+left+";expires="+d+";path=/";
+						document.cookie="top="+top+";expires="+d+";path=/";
+						
+					}
+					
+					
+				}
+				//当鼠标松开时，把flag的值设为false。鼠标再次移动时，元素的left和top就不会改变。
+				document.onmouseup=function()
+				{
+					
+					
+					img.flag=false;
+				}
+				btn.onclick=function()
+				{
+					var t="";
+					var i=path.length-1;
+					
+					t=setInterval(function()
+					{
+						img.style.left=path[i].x+"px";
+						img.style.top=path[i].y+"px";
+						i--;
+						if(i<0)
+						{
+							clearInterval(t);
+							path=[];
+						}
+					},50)
+					
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		
+			<img src="../day04/images/flower1.jpg"/>
+			<input type="button" value="路径回放" id="btn"/>
+		askdjaskjhdg haiksgdksjha gbldashjgdl ajsgdlo jsgadlijhsg kfuhjgsdkhuf siyd gvkhusdvk
+	</body>
+</html>

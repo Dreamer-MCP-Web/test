@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text" id="txt1"/>
+<input type="text" id="txt2"/>
+<input type="button" onClick="getBMI()" value="计算">
+</body>
+</html>
+<script type="text/javascript">
+
+function getBMI(){
+	var weight=document.getElementById("txt1").value;
+	alert(weight);
+	var height=document.getElementById("txt2").value;
+	alert(height);
+	var BMI=weight/(height*height);
+	alert(BMI);
+if(BMI<18.5)
+{
+	alert("体重过轻");
+}
+else if(BMI>=18.5&&BMI<=24.99)
+{
+	alert("体重正常");
+}
+else if(BMI>=25&&BMI<=28)
+{
+	alert("体重过重");
+}
+else if(BMI>=28&&BMI<=32)
+{
+	alert("体重肥胖");
+}
+else if(BMI>32)
+{
+	alert("体重非常肥胖");
+}
+}
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{position: fixed;left:20px;top: 150px;}
+			#div2{position: fixed;left: 20px;top: 200px;}
+			body{width: 3000px;height: 5000px;}
+		</style>
+		<script type="text/javascript">
+		window.onload=function()
+		{
+			window.onmousemove=function(ev)
+			{
+				var oev=ev||event;
+				//获取滚动条的左边和上边距离
+				var scrolltop=document.body.scrollTop||document.documentElement.scrollTop;
+				var scrollleft=document.body.scrollLeft||document.documentElement.scrollLeft;
+				document.getElementById("div1").innerHTML=(oev.clientX+scrollleft)+","+(oev.clientY+scrolltop);
+				document.getElementById("div2").innerHTML="左边"+scrollleft+"上边"+scrolltop;
+			}
+		}
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+</html>

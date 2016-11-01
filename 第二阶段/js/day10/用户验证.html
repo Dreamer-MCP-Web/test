@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.spanColor{color:#f00}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var info=["用户名不能为空","用户名不能大于6位","用户名合法"]
+				var txt=document.getElementById("txt1");
+				var span=document.getElementById("span1");
+				txt.onblur=function()
+				{
+					var num=txt.value.length;
+					if(num<1)
+					{
+						span.innerHTML=info[0];
+						span.className="spanColor";
+					}
+					else if(num>6)
+					{
+						span.innerHTML=info[1];
+						span.className="spanColor";
+					}
+					else{span.innerHTML=info[2];span.className="spanColor"}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" name="" id="txt1" /><span id="span1">用户名只能由数字，字母和下划线组成!
+			
+		</span>
+	</body>
+</html>

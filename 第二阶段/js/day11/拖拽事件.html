@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{height: 200px;width: 200px;background: greenyellow;position: absolute;cursor: pointer;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				//获取控件
+				var odiv=document.getElementById("div1");
+				//鼠标按下时，获取此时鼠标相对于div的偏移量
+				odiv.onmousedown=function(ev)
+				{
+					ev=ev||event;
+					//设置一个标记，表明鼠标点击的是要移动的元素
+					odiv.flag=true;
+					//获取偏移量
+					odiv.offx=ev.clientX-this.offsetLeft;
+					odiv.offy=ev.clientY-this.offsetTop;	
+				
+				}
+				//鼠标移动时，div的跟随移动
+				document.onmousemove=function(ev)
+				{
+					ev=ev||event;
+					//判断鼠标点击的是否是要移动的元素					
+					if(odiv.flag)
+					{
+						var left=ev.clientX-odiv.offx;
+						var top=ev.clientY-odiv.offy;
+						
+						var maxLeft=document.documentElement.clientWidth-odiv.offsetWidth;
+						var maxTop=document.documentElement.clientHeight-odiv.offsetHeight;
+						if(left<0)
+						{
+							left=0
+						}
+						if(top<0)
+						{top=0}
+						if(left>=maxLeft)
+						{left=maxLeft}
+						if(top>=maxTop)
+						{top=maxTop}
+					}
+					odiv.style.left=left+"px";
+					odiv.style.top=top+"px";
+				}
+				//鼠标松开时，div不在移动
+				document.onmouseup=function()
+				{
+					odiv.flag=false;
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Person(name,age,gender)
+		{
+			this.name=name;
+			this.age=age;
+			this.gender=gender;
+		}
+		Person.prototype.run=function()
+		{
+			alert(this.name+" is running");
+		}
+		var p1=new Person("xxh",14,"girl");
+		var p2=new Person("xxh",22,"girl");
+		//p2.run();
+		p1.fly=function()
+		{
+			alert(this.name+" is flying");
+		}
+		//p1.fly();
+		String.prototype.remove=function(str)
+		{
+			var tmp=[];
+			for(var i=0;i<String.length;i++)
+			{
+				if(tmp.indexOf(this[i])==-1)
+				{
+					tmp.push(this[i]);
+				}
+			}
+			
+		}
+		var str="aaaabbbcccc";
+		//str.remove();
+		console.log(str.remove(str));
+	</script>
+</html>

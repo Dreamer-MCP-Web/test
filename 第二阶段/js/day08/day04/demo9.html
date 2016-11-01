@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+div{float:left;margin:10px;}
+#div1{height:100px;width:100px;background:red}
+#div2{height:200px;width:200px;background:blue}
+#div3{height:300px;width:300px;background:green}
+</style>
+</head>
+
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<input type="button" value="获取1" onClick="getvalue(odiv1,'width')"/>
+<input type="button" value="获取2" onClick="getvalue(odiv2,'width')"/>
+<input type="button" value="获取3" onClick="getvalue(odiv3,'width')"/>
+</body>
+</html>
+<script type="text/javascript">
+//获取控件
+var odiv1=document.getElementById("div1");
+var odiv2=document.getElementById("div2");
+var odiv3=document.getElementById("div3");
+//定义获取值得函数
+function getvalue(obj,name)
+{
+	if(obj.currentStyle)
+	{
+		return num=obj.currentStyle[name];//兼容IE浏览器
+		alert(num);
+	}
+	else{
+		return num=getComputedStyle(obj,false)[name];
+		alert(num);
+		
+		}//兼容谷歌浏览器和火狐。
+}
+</script>

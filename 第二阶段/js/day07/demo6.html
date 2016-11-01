@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js.js"></script>
+<script type="text/javascript">
+var date=new Date();
+var bool=isRun(date);
+if(bool==true)//判断闰年
+{
+	alert("闰年");
+}
+else alert("平年");
+var str=geshi(date);//格式化输出日期
+document.write("格式化输出日期："+str+"<br/>");
+var dates=new Date(date);//输出本月的天数
+var num=days(dates);
+document.write("本月天数有："+num+"<br/>");
+</script>
+</head>
+
+<body>
+</body>
+</html>

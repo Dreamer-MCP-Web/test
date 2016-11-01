@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	#div1{height:100px;width: 100px;background: red;margin-top:20px;float:left}
+	#div2{height: 200px;width: 200px;background: #ccc;margin-top:20px;float: left;display: none;}
+</style>
+<script type="text/javascript">
+	
+		function MouseOver()
+		{
+			clearTimeout(timer);
+			setTimeout(
+				function()
+				{
+					document.getElementById("div2").style.display="block";
+				}
+				,1000
+			)
+		}
+		var timer;
+		function MouseOut()
+		{
+			timer=setTimeout(
+				function()
+				{
+					document.getElementById("div2").style.display="none";
+				}
+				,1000
+			)
+		}		
+	
+</script>
+</head>
+
+<body>
+	<div id="div1" onmouseover="MouseOver()" onmouseout="MouseOut()"></div>
+	<div id="div2" onmouseover="MouseOver()" onmouseout="MouseOut()"></div>
+</body>
+</html>

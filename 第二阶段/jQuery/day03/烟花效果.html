@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{background: black;overflow: hidden;}
+			.fire{position: absolute;width: 3px;height: 30px;background: #FFF;}
+			.spark{position: absolute;width: 3px;height: 3px;}
+		</style>
+		<script src="../jquery-1.12.4.js"></script>
+		<script type="text/javascript">
+			$(function()
+			{
+				/*
+				 1.屏幕上点击，在页面底部产生一个烟花，
+				 2.向上运动，运动到点击的位置，烟花消失，同时随机产生多个烟花爆竹点
+				 3.多个烟花点-->  使用面向对象的方法
+				 	运动：抛物线运动  只有一个点
+				 4.当烟花点运动到屏幕下方时，移出烟花点	
+				*/
+				var viewHeight=$(document).outerHeight();
+				//console.log(viewHeight)
+				$(document).click(function(e){
+					var $fire=$("<div/>");//产生烟花
+					$fire.addClass("fire"); //添加样式
+					$fire.css({left:e.clientX,top:viewHeight-30})  //烟花的位置
+					$("body").append($fire);
+					$fire.animate({top:e.clientY,height:3},1000,function(){  //烟花运动到鼠标点击的位置
+						$fire.remove();
+						explode(e);
+						//console.log(e);
+					});
+				});
+				function explode(pos)
+				{
+					
+					var n=Math.floor(Math.random()*50)+30;  //产生的烟花点的数量
+					
+					for(var i=0;i<n;i++)
+					{
+						new Spark(pos).move();  //循环产生烟花点并移动
+						
+					}
+				}
+				function Spark(pos)
+				{
+					//console.log(pos);
+					this.spark=$("<div/>"); //产生烟花
+					$("body").append(this.spark);
+					this.spark.addClass("spark");  //添加样式
+					//console.log(pos.clientX+" "+pos.clientY)
+					this.spark.css({left:pos.clientX,top:pos.clientY});//设置初始位置
+					var colors=Math.ceil(Math.random()*0xffffff).toString(16);//设置背景颜色
+					this.spark.css({background:"#"+colors});
+					
+				}
+				Spark.prototype.move=function() //烟花运动的函数
+				{
+					//console.log("1111");
+					var speedX=Math.ceil(Math.random()*40)-20;  //随机数的范围 20~-20
+					var speedY=Math.ceil(Math.random()*40)-20;  //随机数的范围 20~-20
+					//console.log(speedY);
+					var that=this;  //把this赋给that  以便在定时器中使用
+					var timer=setInterval(function(){
+						
+						var _left=parseInt(that.spark.css("left"))+speedX;  //烟花点的left值逐渐变化
+						var _top=parseInt(that.spark.css("top"))+speedY++;  //烟花点的top值逐渐变化
+						that.spark.css({left:_left,top:_top})  //设置烟花点的位置不断变化
+						//console.log($(document).outerHeight())
+						if(_top>=1000)
+						{
+							clearInterval(timer);  //当烟花点移动到屏幕下方时，清除定时器，移出烟花点
+							console.log(111)
+							that.spark.remove();
+						}
+					},30)
+				}
+			})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

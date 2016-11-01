@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#good2{width:200px ;height: 200px;float: left;background: red;position: absolute;left:300px}
+			#good1{width:200px ;height: 200px;float: left;background: greenyellow;}
+			.addCart{position: absolute;left: 30px;top: 120px;}
+			.count{position: absolute;left: 30px;top: 150px;}
+		</style>
+		<script src="doCookie.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var addCart=document.getElementsByClassName("addCart");
+				var count=document.getElementsByClassName("count");
+				var arr=[];
+				if(getCookie("cart"))
+				{
+					var str=getCookie("cart");//把cookie的值获取到并转换成数组
+					arr=eval(str);
+				}
+				for(var i=0;i<addCart.length;i++)
+				{
+					addCart[i].index=i;
+					addCart[i].onclick=function()
+					{
+						var gid=this.getAttribute("gid");
+						var num=count[this.index].value;
+						//setCookie("gid",gid,10);
+						//setCookie("num",num,10);
+						var obj={id:gid,count:num};
+						//arr.push(obj);//会重复的添加商品而不会修改数量。使用自定义函数解决。
+						aaddCart(arr,obj);
+						//console.dir(JSON.stringify(arr));
+						setCookie("cart",JSON.stringify(arr),10);
+						alert(getCookie("cart"));
+						alert("添加成功");
+					}
+				}
+				function aaddCart(arr,obj)
+				{					
+					//如果数组中存在该商品，则修改商品数量
+					//如果数组中不存在该商品，则把商品添加到数组中。
+					for(var i=0;i<arr.length;i++)
+					{						
+						if(arr[i].id==obj.id)
+						{
+							//obj存在数组arr中
+							arr[i].count=Number(arr[i].count)+Number(obj.count);
+							break;
+						}
+					}
+					if(i==arr.length)
+					{
+						arr.push(obj);
+				
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="good1">
+			<input type="button" value="添加到购物车" class="addCart" gid="101"/>
+			<input type="text" value="10" class="count"/>
+		</div>
+		<div id="good2">
+			<input type="button" value="添加到购物车" class="addCart" gid="102"/>
+			<input type="text" value="10" class="count"/>
+		</div>
+		
+	</body>
+</html>
+ 

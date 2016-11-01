@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<input type="button" name="btn1" id="btn1" value="搜索" />
+		<table border="1" cellspacing="0" id="tab1">
+			<thead>
+				<td>编号</td>
+				<td>名字</td>
+				<td>年龄</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>王五</td>
+					<td>33</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>李四</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>李小李</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>李期</td>
+					<td>22</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+<script type="text/javascript">
+	//获取控件
+	var txt=document.getElementById("txt1");
+	var btn=document.getElementById("btn1");
+	var otab=document.getElementById("tab1");
+	btn.onclick=function()
+	{
+		//获取输入的值并转换为小写
+		var ctxt=txt.value.toLowerCase();
+		var arr=ctxt.split(" ");//把输入的多个值转换为数组保存起来
+		
+		for(var i=0;i<otab.tBodies[0].rows.length;i++)//循环表格
+		{	//获取表格中的姓名
+			var cname=otab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();	
+			otab.tBodies[0].rows[i].style.background="";//每次都把表格的颜色重置。
+			for(var j=0;j<arr.length;j++)
+			{
+				//把输入的值与表格中的值进行比较
+				if(cname.search(arr[j])!=-1&&arr[0]!="")
+				{				
+					otab.tBodies[0].rows[i].style.background="yellow";					
+			}
+			
+			
+		}
+		
+	
+	
+	}
+</script>

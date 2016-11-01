@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#banner{width: 100%;height: 500px;background: url(bg3.gif);background-size: cover;}
+			#btn input{width: 20%;height: 30px;}
+			.cont{width: 500%;height: 500px;border: 1px solid red;}
+		</style>
+		<script type="text/javascript" src="cookie.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="banner">
+			
+		</div>
+		<div id="btn">
+			<input type="button" value="第一关"/>
+			<input type="button" value="第二关"/>
+			<input type="button" value="第三关"/>
+			<input type="button" value="第四关"/>
+		</div>
+		<div class="cont" ids="0">
+			111111
+		</div>
+		<div class="cont" ids="1">
+			<input type="text" id="txt1"/>
+			<input type="text" id="txt2"/>
+			<input type="button" id="btn1" value="翻转"/>
+		</div>
+		<div class="cont" ids="2">
+			<input type="text" id="txt3"/>
+			<input type="text" id="txt4"/>
+			<input type="button" id="btn2" value="存入"/>
+		</div>
+		<div class="cont" ids="3">
+			<input type="text" id="txt5"/>
+			<input type="text" id="txt6"/>
+			<input type="button" id="btn3" value="去重"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			//console.log("1");
+			var banner=document.getElementById("banner");
+			var input=document.getElementsByTagName("input");
+			var cont=document.getElementsByClassName("cont");
+			//一
+			banner.timer=setInterval(function(){
+				
+				banner.style.height=banner.offsetHeight-10+"px";
+				//console.log(banner.offsetHeight);
+				if(banner.offsetHeight<=100)
+				{
+					clearInterval(banner.timer);
+				}
+			},30)
+			for(var i=0;i<input.length;i++)
+			{	
+				input[i].index=i;
+				input[i].onclick=function()
+				{
+					var firstDiv=cont[0];	
+					for(var j=0;j<cont.length;j++)
+					{
+						if(cont[j].getAttribute("ids")==this.index)
+						{
+							var currentDiv=cont[j];
+							firstDiv.parentNode.insertBefore(currentDiv,firstDiv);
+						}
+					}															
+				}
+			}
+			//数组翻转
+			var btn1=document.getElementById("btn1");
+			btn1.onclick=function()
+			{
+				var txt1=document.getElementById("txt1").value;
+				var txt2=document.getElementById("txt2");
+				var arr=txt1.split(" ");
+				for(var i=0;i<arr.length;i++)
+				{
+					var word=arr[i].split("");
+					word.reverse();
+					arr[i]=word.join("");
+				}
+				
+				txt2.value=arr.join(" ");;
+			}
+			//cookie；
+			var btn2=document.getElementById("btn2");
+			if(document.cookie.indexOf("person")!=-1)
+			{
+				var arr=document.cookie.split("; ");
+				for(var i=0;i<arr.length;i++)
+				{
+					if(arr[i].indexOf("person")!=-1)
+					{
+						var arr2=arr[i];
+						break;
+					}
+				}
+				if(arr2)
+				{
+					var obj=arr2.split("=")[1];
+					obj=eval("("+obj+")");
+					console.log(obj);
+				}
+			}
+			btn2.onclick=function()
+			{
+				var d=new Date();
+				d.setDate(d.getDate()+10)
+				var txt3=document.getElementById("txt3").value;
+				var obj=eval("("+txt3+")")
+				document.cookie="person="+obj+";expires="+d;
+				var txt4=document.cookie;
+				alert(txt4);
+			}
+			//数组去重
+			var txt5=document.getElementById("txt5");
+			var txt6=document.getElementById("txt6");
+			var btn3=document.getElementById("btn3");
+			btn3.onclick=function()
+			{
+				var arr=txt5.value.split(",");
+				var tmp=[];  //空数组
+				var count=[];
+				for(var i=0;i<arr.length;i++)
+				{
+					if(tmp.indexOf(arr[i])==-1)
+					{
+						tmp.push(arr[i]);
+					}
+				}
+				console.log(tmp);
+				for(var i=0;i<tmp.length;i++)
+				{
+					for(var j=0;j<arr.length;j++)
+					{
+						if()
+					}
+				}
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="button" value="1" id="btn1"/>
+<input type="button" value="2" id="btn2"/ >
+<input type="button" value="3" id="btn3"/ >
+<input type="button" value="4" id="btn4"/ >
+
+<img id="imgs" src="images/flower1.jpg"/>
+
+</body>
+</html>
+<script type="text/javascript">
+	var imgs=document.getElementById("imgs");
+	var btn1=document.getElementById("btn1");
+	var btn2=document.getElementById("btn2");
+	var btn3=document.getElementById("btn3");
+	var btn4=document.getElementById("btn4");
+	var i=1;
+	var timer;
+	function setTimer()
+	{
+		timer=setInterval(function()
+							{
+								imgs.src="images/flower"+i+".jpg";
+								i++;
+								if(i>4)
+								{
+									i=1;
+								}	
+							}
+							,1000);
+	}
+	setTimer();
+	btn1.onclick=function()
+	{
+		clearInterval(timer)
+		i=1;
+		setTimer();
+	}
+	btn2.onclick=function()
+	{
+		clearInterval(timer)
+		i=2;
+		setTimer();
+	}
+	btn3.onclick=function()
+	{
+		clearInterval(timer)
+		i=3;
+		setTimer();
+	}
+	btn4.onclick=function()
+	{
+		clearInterval(timer)
+		i=4;
+		setTimer();
+	}
+</script>

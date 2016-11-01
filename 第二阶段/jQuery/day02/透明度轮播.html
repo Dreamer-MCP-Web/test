@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#inner{position: absolute;left: 50%;top: 50%;margin-left: -340px;margin-top: -172px;}
+			img{position: absolute;}
+			img:nth-child(1){z-index: 1;}
+		</style>
+		<script src="../jquery-1.12.4.js"></script>
+		<script type="text/javascript">
+			$(function()
+			{
+				var $img=$("img");
+				var i=1;
+				var timer=setInterval(function()
+				{
+					$img.eq(i).fadeIn(500).siblings().fadeOut(500);
+					i++;
+					if(i>=$img.length)
+					{
+						i=0;
+					}
+				},2000);
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="inner">
+			  	 <img src="../../js/day14/images/1.jpg"/>
+				 <img style="display: none;" src="../../js/day14/images/2.jpg"/>
+				 <img style="display: none;" src="../../js/day14/images/3.jpg"/>
+				 <img style="display: none;" src="../../js/day14/images/4.jpg"/>
+				 
+			 </div>
+		 </div>
+	</body>
+</html>

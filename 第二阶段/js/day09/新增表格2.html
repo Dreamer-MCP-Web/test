@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			var otab=document.getElementById("tab1");
+			var txt1=document.getElementById("txt1");
+			var txt2=document.getElementById("txt2");
+			var btn=document.getElementById("btn1");
+			btn.onclick=function()
+			{
+				//创建tr节点                                            
+				var ctr=document.createElement("tr");				
+				//创建编号td节点
+				var cnum=document.createElement("td");
+				cnum.innerHTML=otab.tBodies[0].rows.length+1;
+				ctr.appendChild(cnum);//把编号节点加到tr内
+				//创建姓名节点
+				var cname=document.createElement("td");
+				if(txt1.value!="")  //会添加一行空的
+				{
+					cname.innerHTML=txt1.value;
+					ctr.appendChild(cname);  //把姓名节点加到tr内					
+				}				
+				else
+				{
+					alert("姓名不得为空")
+				}
+				//创建年龄td节点
+				var cage=document.createElement("td");
+				if(txt2.value!="")
+				{
+					cage.innerHTML=txt2.value;
+					ctr.appendChild(cage); //把年龄节点加到tr内
+				}
+				else
+				{
+					alert("年龄不得为空")
+				}
+				//创建删除节点
+				var shanchu=document.createElement("td");
+				var aA=document.createElement("a");
+				aA.innerHTML="删除";
+				aA.href="javascript:;";
+				shanchu.appendChild(aA);
+				ctr.appendChild(shanchu);
+				otab.tBodies[0].appendChild(ctr); //把tr节点加到表格后面
+			}
+		}
+	</script>
+	<body>
+		姓名：<input type="text" name="txt1" id="txt1" value="" />
+		年龄：<input type="text" name="txt1" id="txt2" value="" />
+		<input type="button" name="btn1" id="btn1" value="新增" />
+		<table id="tab1" border="1" cellspacing="0" width="200">
+			<thead>
+				<td>编号</td>
+				<td>名字</td>
+				<td>年龄</td>
+				<td>操作</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td><span>张三</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>20</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td><span>张李四</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>21</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td><span>王五</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>23</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td><span>刘六</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>24</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>	
+				<tr>
+					<td>5</td>
+					<td><span>晨曦</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>18</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0;padding: 0;}
+			#small{width: 300px;height: 450px;float: left;position: relative;background: url(11.jpg); background-size:cover ;}
+			#big{width: 300px;height: 450px;float: left;display: none;background: url(11.jpg) no-repeat;}
+			#mask{position: absolute;left: 0;top: 0;display: none;border: 1px solid red;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var small=document.getElementById("small");
+				var big=document.getElementById("big");
+				var mask=document.getElementById("mask");
+				var scale=1624/300;
+				mask.style.width=300/scale+"px";
+				mask.style.height=450/scale+"px";
+				small.onmouseover=function()
+				{
+					mask.style.display="block";
+					big.style.display="block";
+				}
+				small.onmouseout=function()
+				{
+					mask.style.display="none";
+					big.style.display="none";
+				}
+				small.onmousemove=function(ev)
+				{
+					/*ev=ev||event;
+					var left=ev.clientX-mask.offsetWidth/2;
+					var top=ev.clientY-mask.offsetHeight/2;					
+					if(left<0)
+					{
+						left=0;
+					}
+					if(top<0) 
+					{top=0}
+				if(left>=small.offsetWidth-mask.offsetWidth)
+					{
+						left=small.offsetWidth-mask.offsetWidth
+					}
+					if(ttop>=small.offsetHeight-mask.offsetHeight)
+					{
+						ttop=small.offsetHeight-mask.offsetHeight
+					}							
+					if(left>=small.offsetWidth-mask.offsetWidth){
+				 left=small.offsetWidth-mask.offsetWidth
+				 }
+				 if(top>=small.offsetHeight-mask.offsetHeight)
+				 {
+					top=small.offsetHeight-mask.offsetHeight}
+					big.style.backgroundPositionX=-(ev.clientX-mask.offsetWidth/2) *scale+"px";
+					big.style.backgroundPositionY=-(ev.clientY-mask.offsetHeight/2)*scale+"px";
+					mask.style.left=left+"px";
+					mask.style.top=ttop+"px";*/
+					ev=ev||event;
+					var left=ev.clientX-mask.offsetWidth/2;
+					var top=ev.clientY-mask.offsetHeight/2;
+					var maxL=small.offsetWidth-mask.offsetWidth;
+					var maxT=small.offsetHeight-mask.offsetHeight;
+					if(left<0)
+					{left=0}
+					if(top<0)
+					{top=0}
+					if(left>=maxL)
+					{left=maxL}
+					if(top>=maxT)
+					{top=maxT}
+					mask.style.left=left+"px";
+					mask.style.top=top+"px";
+					big.style.backgroundPositionX=-left*scale+"px";
+					big.style.backgroundPositionY=-top*scale+"px";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="small">
+			<div id="mask"></div>
+		</div>
+		<div id="big">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+//获取当前日期
+var date=new Date();
+//获取当前日期的小时值
+var hour=date.getHours();
+if(hour<=12&&hour>=6)
+{
+	alert("早上好，召唤师！");
+}
+else if(hour>12&&hour<=18)
+{
+	alert("中午好，召唤师！");
+	
+}
+else if(hour>18&&hour<=21)
+{
+	alert("晚上好，召唤师！");
+}
+else alert("召唤师，请合理安排游戏时间");
+</script>
+</head>
+
+<body>
+</body>
+</html>

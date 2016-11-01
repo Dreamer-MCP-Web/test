@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.red{width: 100px;height: 100px;background: red;}
+			.greem{width: 200px;height: 100px;background: green;}
+		</style>
+		<script type="text/javascript" src="../jquery-1.12.4.js">
+			
+		</script>
+		<script>
+			$(function()
+			{
+				$("#tab").addClass("red"); //设置class名
+				$("#div1").addClass("greem");
+				var bg=$("#div1").css("background");
+				//console.log(bg);
+				$("#div1").css({width:"100px",background:"blue"})  //设置css样式
+				//console.log($(".ul"));
+				//$(".ul").addClass("greem");
+				//console.log($(".ul"));
+				$(".ul").eq(0).addClass("greem");
+			});
+		</script>
+	</head>
+	<body>
+		<table id="tab">
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<div id="div1">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<ul class="ul">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul class="ul">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul class="ul">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

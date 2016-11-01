@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="div1">abd</div>
+		<form action="" id="f">
+			<input type="button" value="插入" onclick="insert()"/>
+			<input type="button" value="替换" onclick="replace()"/>
+		</form>
+	</body>
+</html>
+<script type="text/javascript">
+			
+				function insert()
+				{
+					var odiv=document.getElementById("div1");
+					var of=document.getElementById("f");
+					var b=document.body;
+					//alert(f.hasAttributes());//查询是否有属性  返回的是true或false
+					//alert(f.hasChildNodes());//查询是否有子节点，返回的是true或false
+					b.insertBefore(f,div1);//节点的替换
+				}
+				function replace()
+				{
+					var odiv=document.getElementById("div1");
+					var of=document.getElementById("f");
+					var b=document.body;
+					//alert(f.hasAttributes());//查询是否有属性  返回的是true或false
+					//alert(f.hasChildNodes());//查询是否有子节点，返回的是true或false
+					b.replaceChild(f,div1);//节点的替换
+				}
+		</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+
+
+//定义函数
+function gettime()
+{	//获取时间
+	var date=new Date();
+	//获取年月日，时分秒
+	var y=date.getFullYear();
+	var mo=date.getMonth()+1;
+	var d=date.getDate();
+	var h=date.getHours();
+	var m=date.getMinutes();
+	var s=date.getSeconds();
+	var time=y+"-"+mo+"-"+d+" "+h+":"+m+":"+s;
+	document.getElementById("time").value=time;
+}
+setInterval("gettime()",1000);
+</script>
+</head>
+
+<body>
+<input type="text" value="" id="time"/>
+</body>
+</html>

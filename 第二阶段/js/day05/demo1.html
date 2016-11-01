@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<script type="text/javascript">
+	var arr=[100,94,103,87,30,193,28];
+	var sum=0;
+	var aver;
+	var mi=arr[0];
+	var j=0;;
+	for(i=0;i<arr.length;i++)
+	{
+		sum=sum+arr[i];//求和
+	}
+	document.write(sum+"<br/>");
+	aver=sum/arr.length;//求平均值
+	document.write(aver+"<br/>");
+	for(i=0;i<arr.length;i++)
+	{
+		if(Math.abs(arr[i]-aver)<(arr[0]-aver))
+		{
+			j=i;
+		}
+	}
+	document.write(arr[j]+"<br/>");//求与平均值最接近的数值
+	for(i=0;i<arr.length;i++)
+	{
+		if(arr[0]<arr[i])
+		{
+			arr[0]=arr[i];//求最大值
+			
+		}
+		if(mi>arr[i])
+		{
+			mi=arr[i];//求最小值
+		}
+	}
+	document.write(arr[0]+"<br/>");
+	document.write(mi);
+	
+</script>

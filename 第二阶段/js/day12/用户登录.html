@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="doCookie.js">
+			
+		</script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var txt=document.getElementById("txt");
+				var paw=document.getElementById("paw");
+				if(getCookie("zhanghao"))
+				{
+					txt.value=getCookie("zhanghao");
+					paw.value=getCookie("mima");
+				}
+				var btn=document.getElementById("btn");
+				btn.onclick=function()
+				{
+					if(txt.value)
+					{
+						setCookie("zhanghao",txt.value,10);
+						setCookie("mima",paw.value,10);
+						setCookie("time",new Date().toLocaleString(),10);
+						console.log("用户名保存成功");
+						
+					}
+									
+				}
+			}
+		</script>
+	</head>
+	<body>
+		用户名：<input type="text" id="txt" maxlength="12"/>密码：<input type="password" id="paw" maxlength="12"/><br /><br />
+		<input type="button" name="btn" id="btn" value="登录" />
+	</body>
+	
+</html>

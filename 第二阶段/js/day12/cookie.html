@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//document.cookie="id=2006-2009";
+		for(var i=0;i<160;i++)
+		{
+			document.cookie="id"+i+"=2006-2009"+"-"+i
+		}
+		//alert(document.cookie.charAt());
+		str=document.cookie;
+		arr=str.split("; ")
+		//通过cookie的下标查找
+		var str72=arr[62];
+		var n=str72.indexOf("=");
+		alert(str72.substring(n+1));
+		alert(str72.split("=")[1]);
+		//通过cook的名字查找
+		function searchId(id)
+		{
+			for(var i=0;i<arr.length;i++)
+			{
+				if(arr[i].indexOf(id)!=-1)
+				{
+					alert(arr[i].split("=")[1]);
+					break;
+				}
+			}
+		}
+		searchId("id55");
+		
+	</script>
+</html>

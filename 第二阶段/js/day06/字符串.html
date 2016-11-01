@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
+<script type="text/javascript">
+	var str="abcdefgabc";
+	/*alert(str.indexOf("abc"));//查找字符串第一次出现的位置
+	alert(str.lastIndexOf("abc"));//查找字符串最后一次出现的位置
+	alert(str.search(/Abc/i));//查找字符串出现的位置，返回下表，i表示不区分大小写
+	alert(str.match("abc"));//返回需要查找的字符串，失败返回null
+	alert(str.replace(/c/gi,"k"));//把c替代为k，gi表示全局替代
+	*/
+	alert(str.substring(3,5));//substring(start,end),start表示开始截取的下标，end表示截取结束的下标，但不包括他本身，即下标为end的没有被截取；
+	alert(str.substr(3,[2]));//substr(start,[length]),length表示要截取的长度;
+	alert(str.split("b"));//字符串分割。str.split("d"),把d删除并把字符串分割开程几个字符串，把各个字符串保存到一个数组中，
+	
+</script>

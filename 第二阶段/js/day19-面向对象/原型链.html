@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function fn1()
+		{
+			//this.name="abc";
+			console.log(this);
+		}
+		fn1();
+		//fn1.prototype.color="white";
+		//任何一个函数的_proto_都指向Function.prototype
+		//任何一个函数的prototype属性都是自己独有的一些属性
+		
+		//fn1.prototype.make="aaaa";
+		/*console.dir(fn1);
+		var fn2=new Function();
+		console.dir(fn2.__proto__==Function.prototype);*/
+		//var f1=new fn1();
+		//alert(f1.name)
+	</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<table border="1" cellspacing="0" id="tab1">
+			<thead>
+				<td>编号</td>
+				<td>名字</td>
+				<td>年龄</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>王五</td>
+					<td>33</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>李四</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>李小李</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>李期</td>
+					<td>22</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+<script type="text/javascript">
+		
+			//获取table元素
+			var oTab=document.getElementById("tab1");
+			//定义高亮之前的颜色
+			var oldColor="";
+			for(var i=0;i<oTab.tBodies[0].rows.length;i++)//循环表格
+			{
+				//鼠标移入时
+				oTab.tBodies[0].rows[i].onmouseover=function()
+				{
+					oldColor=this.style.background;//保存高亮之前的颜色
+					this.style.background="yellow";
+				}
+				//鼠标移出时
+				oTab.tBodies[0].rows[i].onmouseout=function()
+				{
+					this.style.background=oldColor;
+				}
+			if(i%2==0)
+				{
+					oTab.tBodies[0].rows[i].style.background="#ccc";
+				}
+			}
+		
+			
+		</script>

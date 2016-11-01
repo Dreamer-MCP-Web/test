@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				//获取控件
+				var btn=document.getElementById("btn1");
+				var txt1=document.getElementById("txt1");
+				var txt2=document.getElementById("txt2");
+				var otab=document.getElementById("tab1");
+				btn.onclick=function()
+				{
+					//获取编号
+					var num=otab.tBodies[0].rows.length+1;
+					//创建tr节点
+					var ctr=document.createElement("tr");
+					//创建编号td节点
+					var ctd1=document.createElement("td");
+					ctd1.innerHTML=num;
+					ctr.appendChild(ctd1);//追加编号节点
+					//创建姓名td节点
+					var ctd2=document.createElement("td");
+					if(txt1.value=="")
+					{alert("输入的姓名不能为空")}
+					else
+					{
+						ctd2.innerHTML=txt1.value;
+						ctr.appendChild(ctd2);
+					}
+					
+					//创建年龄td节点
+					var ctd3=document.createElement("td");
+					ctd3.innerHTML=txt2.value;
+					ctr.appendChild(ctd3);
+					
+					//创建删除td节点
+					var ctd4=document.createElement("td");
+					ctd4.innerHTML="<a href='javascript:;'>删除</a>"
+					ctr.appendChild(ctd4);
+					//把tr节点追加到tbodies之后
+					otab.tBodies[0].appendChild(ctr);
+					for(var i=0;i<otab.tBodies[0].rows.length;i++)
+				{
+					otab.tBodies[0].getElementsByTagName("a")[i].onclick=function()
+					{
+						otab.tBodies[0].removeChild(this.parentNode.parentNode);
+					}
+				}
+					
+				}
+				for(var i=0;i<otab.tBodies[0].rows.length;i++)
+				{
+					otab.tBodies[0].getElementsByTagName("a")[i].onclick=function()
+					{
+						otab.tBodies[0].removeChild(this.parentNode.parentNode);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		姓名：<input type="text" name="txt1" id="txt1" value="" />
+		年龄：<input type="text" name="txt1" id="txt2" value="" />
+		<input type="button" name="btn1" id="btn1" value="新增" />
+		<table id="tab1" border="1" cellspacing="0" width="200">
+			<thead>
+				<td>编号</td>
+				<td>名字</td>
+				<td>年龄</td>
+				<td>操作</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td><span>张三</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>20</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td><span>张李四</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>21</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td><span>王五</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>23</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td><span>刘六</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>24</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>	
+				<tr>
+					<td>5</td>
+					<td><span>晨曦</span><input type="text" value="" style="display: none;" id="txt1"/></td>
+					<td>18</td>
+					<td><a href="javascript:;">删除</a></td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</body>
+</html>

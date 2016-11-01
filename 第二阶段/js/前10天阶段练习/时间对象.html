@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<span id="span1">
+			
+		</span><br/><br />
+		<span id="span2"></span>
+		输入一个天数<input type="text" id="txt1"/>
+		<input type="button" value="计算" id="btn"/>
+	</body>
+	<script type="text/javascript" src="../day07/js.js"></script>
+	<script type="text/javascript">
+		/*setInterval(function()
+		{
+			var span1=document.getElementById("span1")
+			var date=new Date();//定时器每过1000毫秒获取系统的当前时间
+			span1.innerHTML=date;
+		},1000)*/
+		//获取控件		
+		/*//输出当前的系统时间
+		var sapn1=document.getElementById("span1");	
+		setInterval(function()
+		{
+			var date=new Date();//获取系统时间
+			//分别获取时间的年月日，时分秒
+			var y=date.getFullYear();
+			var m=date.getMonth()+1;
+			var d=date.getDate();
+			//var weekDay=date.getDay()//获取这是这周的第几天
+			var h=date.getHours();
+			var min=date.getMinutes();
+			var sec=date.getSeconds();
+			var time=y+"-"+m+"-"+d+" "+h+":"+min+":"+sec;
+			span1.innerHTML=time;
+		},
+			1000)*/
+			
+		//输出页面的停留时间	
+		/*
+	 	var span2=document.getElementById("span2");
+		var h=0;
+		var m=0;
+		var s=0;
+		setInterval(function()
+		{
+			var Atime;
+			s++;
+			s=s*1;
+			m=m*1;
+			h=h*1;
+			if(s>59)
+			{
+				s=0;m++
+			}
+			if(m>59)
+			{
+				m=0;h++;
+			}
+			if(s<10)
+			{s="0"+s;}
+			if(m<10)
+			{m="0"+m;}
+			if(h<10)
+			{h="0"+h;}
+			time=h+"小时"+m+"分"+s+"秒"
+			span2.innerHTML=time;
+		},1000)*/
+		//计算n天以后的日期为多少
+		/*var btn=document.getElementById("btn");
+		var txt1=document.getElementById("txt1");
+		btn.onclick=function()
+		{
+			//获取系统当前的时间
+			var date=new Date();
+			//获取文本框中输入的天数
+			var day=txt1.value;
+			var num=24*60*60*1000;//一天的毫秒数
+			var num2=Date.parse(date);//把系统时间转换为毫秒数
+			var num3=num*day+num2;//把当前时间毫秒数加上n天的毫秒数
+			date.setTime(num3);//把毫秒数转换为日期；修改的是原来的日期
+			var time=geshi(date);
+			alert(time);//弹出n天后的日期
+		}*/
+	</script>
+</html>

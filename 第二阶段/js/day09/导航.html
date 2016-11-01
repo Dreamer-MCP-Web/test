@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			a{text-decoration: none;color:#f00;display: block;width: 100px;height:50px;text-align:center}
+			#ul1 li:hover{background: pink;}
+			li{float:left;width:100px;height:50px;line-height: 50px;font-size:20px;list-style: none;position:relative;background: blue;}
+			#div1{display: none;}
+			#div1 a{background:pink;}
+			#div1 a:hover{opacity: 0.5;}
+		</style>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li id="li1"><a href="">1111</a><div id="div1"><a href="">111</a><a href="">111</a><a href="">111</a></div></li>
+			<li id="li2"><a href="">2222</a><div id="div1"><a href="">222</a><a href="">222</a><a href="">222</a></div></li>
+			<li id="li3"><a href="">3333</a><div id="div1"><a href="">333</a><a href="">333</a><a href="">333</a></div></li>
+			<li id="li4"><a href="">4444</a><div id="div1"><a href="">444</a><a href="">444</a><a href="">444</a></div></li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	var oul=document.getElementById("ul1");//获取ul控件
+	var lis=document.getElementsByTagName("li");//获取li控件
+	for(var i=0;i<lis.length;i++)
+	{
+		lis[i].onmouseover=function()
+		{
+			
+			this.childNodes[1].style.display="block"
+		}
+		lis[i].onmouseout=function()
+		{
+			
+			this.childNodes[1].style.display="none"
+		}
+		
+	}
+</script>

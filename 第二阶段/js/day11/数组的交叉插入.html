@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			//获取控件
+			var txt1=document.getElementById("txt1");
+			var txt2=document.getElementById("txt2");
+			var btn=document.getElementById("btn");
+			var txt3=document.getElementById("txt3");
+			btn.onclick=function()
+			{
+				//获取字符串s1和s2
+				var str1=txt1.value;
+				var str2=txt2.value;
+				//把字符串转换为数组
+				var s1=str1.split("");
+				var s2=str2.split("");
+				//把数组s1和s2交叉插入
+				if(s1.length>=s2.length)
+				{
+					for(var i=0;i<s2.length;i++)
+					{
+						s1.splice(2*i+1,0,s2[i]);	
+					}
+					//把数组转为字符串并赋给文本框
+					txt3.value=s1.join("");	
+				}
+				if(s1.length<s2.length)
+				{
+					for(var i=0;i<s1.length;i++)
+					{
+						s2.splice(2*i+1,0,s1[i]);	
+					}
+					//把数组转为字符串并赋给文本框
+					txt3.value=s2.join("");	
+				}
+
+			}
+		}
+	</script>
+	<body>
+		输入字符串S1：<input type="text" id="txt1" maxlength="120"/><br /><br />
+		输入字符串S2：<input type="text" id="txt2" maxlength="120"/><br /><br />
+		<input type="button" id="btn" value="合并"/><br /><br />
+		合并后的字符串为：<input type="text" id="txt3"/>		
+	</body>
+</html>

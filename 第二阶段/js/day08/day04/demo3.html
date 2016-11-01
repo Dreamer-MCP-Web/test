@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="button" value="1" onClick="change1()"/>
+<input type="button" value="2" onClick="change2()"/ >
+<input type="button" value="3" onClick="change3()"/ >
+<input type="button" value="4" onClick="change4()"/ >
+<input type="button" value="自动" onclick="zidong"/>
+<img id="imgs" src="images/flower1.jpg"/>
+</body>
+</html>
+<script type="text/javascript">
+
+	//获取控件
+	var imgs=document.getElementById("imgs");
+	function change1()
+	{
+		imgs.src="images/flower1.jpg"
+	}
+	function change2()
+	{
+		imgs.src="images/flower2.jpg"
+	}
+	function change3()
+	{
+		imgs.src="images/flower3.jpg"
+	}
+	function change4()
+	{
+		imgs.src="images/flower4.jpg"
+	}
+	function zidong()
+	{
+		setInterval()
+	}
+
+</script>

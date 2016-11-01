@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#chat{overflow: auto;position: absolute;left: 400px;height: 500px;width: 500px;top: 50px;border: 1px solid #333;}
+			#talk{position: absolute;left: 0;top: 440px;width: 400px;height: 30px;font-size: 30px;line-height: 30px;}
+			#gf{width: 100%;height: 430px;position: absolute;border-bottom: 1px solid red;}
+			.meTalk{font-size: 30px;color: hotpink;border-bottom: 1px solid burlywood;}
+			.oTalk{font-size: 30px;color: darkred;border-bottom: 1px solid blue;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var gf=document.getElementById("gf");
+				var talk=document.getElementById("talk");
+				var arr=["你好","吃饭了吗","请加我的QQ：1245092243","给我发个红包吧"]
+				var i=0;
+				//在输入框中输入之后，把信息传到chat中
+				document.onkeydown=function(ev)
+				{
+					ev=ev||event;
+					if(ev.keyCode==13&&ev.ctrlKey)
+					{
+						var addDiv=document.createElement("div");
+						addDiv.innerHTML=talk.value;
+						gf.appendChild(addDiv);
+						talk.value="";
+						addDiv.className="meTalk";
+						var addDiv2=document.createElement("div");
+						addDiv2.innerHTML=arr[i++];
+						gf.appendChild(addDiv2);
+						addDiv2.className="oTalk";
+					
+						if(i>=arr.length)
+						{
+							i=0;
+						}
+						var count=gf.children.length;
+						if(count>=9)
+						{
+							//gf.style.top=gf.offsetTop-40+"px";
+							for(var k=gf.children.length-11;k>=0;k--)
+							{
+								gf.children[k].style.display="none";
+							}
+						}
+					}
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="chat">
+			<div id="gf"></div>
+			<input type="text" placeholder="请输入..." id="talk"/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			table{border-collapse: collapse;}
+			table tr td{width: 150px;height: 30px;border: 1px solid red;}
+			
+		</style>
+		<script type="text/javascript" src="doCookie.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				/*//获取控件
+				var otab=document.getElementsByTagName("table")[0];
+				var otr=otab.getElementsByTagName("tr");
+				var btn=document.getElementsByTagName("input");
+				if(getCookie("cart"))
+				{
+					var str=getCookie("cart");
+					var arr=eval(str);
+					//alert(arr.length);  测试是否获得数组  成功
+					for(var i=0;i<arr.length;i++)
+					{
+						//把cookie数组填充到表格的单元格中
+						otr[i].cells[0].innerHTML=arr[i].id;
+						otr[i].cells[1].innerHTML=arr[i].count;
+					}
+				}
+				else
+				{
+					alert("不存在该cookie");					
+				}
+				//建立删除按钮的事件
+				for(var i=0;i<btn.length;i++)
+				{
+					btn[i].index=i;
+					btn[i].onclick=function()
+					{
+						//从页面上删除整列
+						otab.tBodies[0].removeChild(this.parentNode.parentNode);
+						//从cookie里删除相应的cookie值
+						//需要修改cart里字符串的值，并重新给cart赋值
+						arr.splice(this.index,1);
+						setCookie("cart",JSON.stringify(arr,10));
+						alert("删除完成");
+					}
+				}*/
+				//获取控件
+				var otab=document.getElementsByTagName("table")[0];
+				var otr=document.getElementsByTagName("tr");
+				var btn=document.getElementsByTagName("input");
+				if(getCookie("cart"))
+				{
+					var str=getCookie("cart");
+					var arr=eval(str);//把cookie转为数组
+					for(var i=0;i<arr.length;i++)
+					{
+						otr[i].cells[0].innerHTML=arr[i].id;
+						otr[i].cells[1].innerHTML=arr[i].count;
+					}
+				}
+				else
+				{
+					alert("购物车中没有任何宝贝！");
+				}
+				//添加删除事件
+				for(var i=0;i<arr.length;i++)
+				{
+					btn[i].index=i;
+					btn[i].onclick=function()
+					{
+						//1.删除列元素
+						otab.tBodies[0].removeChild(this.parentNode.parentNode);
+						//2.删除cookie
+						arr.splice(this.index,1);//bug
+						setCookie("cart",JSON.stringify(arr),10);
+					}
+				}
+			
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="button" value="删除"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="button" value="删除"/></td>
+			</tr>
+		</table>
+	</body>
+</html>

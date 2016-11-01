@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var btn=document.getElementById("btn");
+				btn.onclick=function()
+				{
+					var txt=document.getElementById("txt1");
+					var span1=document.getElementById("span1");
+					alert(span1.nextElementSibling.value);//返回下一个兄弟元素节点
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id=div1>
+			<span id="span1"></span>
+			<input type="text" name="txt1" id="txt1" value="adc" />
+			<input type="button" name="btn" id="btn" value="测试 " />
+		</div>
+	</body>
+</html>

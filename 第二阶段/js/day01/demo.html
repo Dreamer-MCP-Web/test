@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>交换两个数</title>
+</head>
+
+
+<body>
+	
+    <input type="text" id="txt1" value=""/>
+    
+    <input type="button" value="交换" onclick="getChange()"/>
+    <input type="text" id="txt2" value=""/>
+    
+</body>
+</html>
+<script type="text/javascript">	
+	function getChange()
+	{
+	//获取两个文本框的值
+	var t1=document.getElementById("txt1").value;
+	var t2=document.getElementById("txt2").value;
+	//定义一个临时变量t，并把t1和t2的值交换
+	var t=t1;
+	t1=t2;
+	t2=t;
+	//分别把交换后的值赋值给相应的文本框
+	document.getElementById("txt1").value=t1;
+	document.getElementById("txt2").value=t2;
+
+	}
+</script>

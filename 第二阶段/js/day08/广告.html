@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#div1{width:400px;height:400px;background:blue;position:fixed;right:-5px;bottom:-5px;display:none}
+#div1 span{position:absolute;left:-7px;top:0;background:#CCCCCC;cursor:pointer;}
+#div2{position:absolute;right:0;top:0;}
+</style>
+</head>
+
+<body>
+<div id="div1">
+	我是该死的广告！
+    <span onclick="set()">X</span>
+    <div id=div2>15秒后广告自动关闭</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function setDisplay()
+{
+	document.getElementById("div1").style.display="block";
+	var i=14;
+	setInterval(
+		function()
+		{
+			document.getElementById("div2").innerHTML=(i+"秒后广告自动关闭");
+			i--;
+			if(i<1)
+			{set();}
+		}
+		,1000
+	)
+	
+}
+setTimeout("setDisplay()",3000);//3秒后广告出现
+function set()
+{
+	document.getElementById("div1").style.display="none";//点击X，广告消失。
+}
+</script>

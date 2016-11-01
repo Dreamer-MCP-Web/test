@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<input type="text" id="txt1"/>
+    <input type="text" id="txt2"/>
+    <input type="text" id="str"/>
+    <input type="button" onclick="getResult()" value="计算"/>
+    <input type="text" id="result"/>
+    
+</body>
+</html>
+<script type="text/javascript">
+	function getResult()
+	{
+		var t1=document.getElementById("txt1").value*1;
+		var t2=document.getElementById("txt2").value*1;
+		var s=document.getElementById("str").value;
+		var result=0;
+		switch(s)
+		{
+			case '+':
+				result=t1+t2;
+				break;
+			case '-':
+				result=t1-t2;
+				break;
+			case '*':
+				result=t1*t2;
+				break;
+			case '/':
+				result=t1/t2;
+				break;
+			default:
+				alert("输入的符号错误");
+				break;
+				
+		}
+		document.getElementById("result").value=result;
+	}
+</script>

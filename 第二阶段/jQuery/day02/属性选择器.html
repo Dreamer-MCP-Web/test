@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.red{width: 100px;height: 100px;background: red;}
+			.green{width: 200px;height: 100px;background: green;}
+		</style>
+		<script src="../jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		<div class="red" title="img1">11</div>
+		<div class="red" title="aimg2">22</div>
+		<div class="red" title="aimg3">33</div>
+		<div class="red" title="img4">44</div>
+		<div class="red">55</div>
+		<div class="red2">66</div>
+	</body>
+	<script type="text/javascript">
+		
+			$("div[class]").addClass("green").css({border:"10px solid blue"});
+			$("div[title^=i").addClass("red").css({background:"yellow"})
+	</script>
+</html>

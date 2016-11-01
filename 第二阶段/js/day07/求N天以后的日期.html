@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js.js"></script>
+
+</head>
+<body>
+当前的时间为：<input type="text" id="txt1" /><br/><br/>
+<input type="button" id="btn" value="计算"/><br/><br/>
+N天以后的时间为：<input type="text" id="txt2" />
+</body>
+</html>
+<script type="text/javascript">
+var n=prompt("请输入一个天数",0);//输入天数
+var btn=document.getElementById("btn");//获取控件
+btn.onclick=function()
+{
+	//获取当前时间赋值给文本框
+	var date=new Date();
+	document.getElementById("txt1").value=geshi(date);
+	//计算N天后的日期
+	var num=n*24*60*60*1000;//n天的毫秒数
+	date.setTime(num+Date.parse(date));//把当前日期的毫秒数与n天的毫秒数相加再转换为日期；
+	document.getElementById("txt2").value=geshi(date);
+}
+</script>

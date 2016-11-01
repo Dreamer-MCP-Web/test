@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text" id="txt" value=""/>
+<input type="button" id="btn" value="过滤"/>
+</body>
+</html>
+<script type="text/javascript">
+	var btn=document.getElementById("btn");
+	var a=["tmd","nnd","xx","马化腾"]//敏感词数组
+	btn.onclick=function()
+	{
+		var t=document.getElementById("txt");//获取输入的文本框控件
+		for(var i=0;i<a.length;i++)//循环遍历敏感词数组；
+		{	 
+			var s=t.value;
+			if(s.search(a[i])!=-1)
+			{
+				var gtxt=s.replace(a[i],"***");
+				t.value=txt;
+				i=-1;
+			}
+		
+		}
+		
+		
+	}
+</script>

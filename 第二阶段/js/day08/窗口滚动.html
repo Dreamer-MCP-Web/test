@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<style type="text/css">
+#btn1{position:fixed;right:50px;}
+#btn3{position:fixed;right:50px;top:50px}
+#btn4{position:fixed;right:50px;top:100px}
+#btn5{position: fixed;right: 50px;top: 150px;}
+</style>
+<body>
+<input type="button" id="btn1" value="滚动" onclick="gun()"/>
+<input type="button" id="btn2" value="自动滚动"/>
+<input type="button" id="btn3" value="回到底部"/>
+<input type="button" id="btn5" value="暂停滚动"/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+1<br/><br/><br/>2<br/><br/><br/>3<br/><br/><br/>3<br/><br/><br/>
+<input type="button" id="btn4" value="头部"/>
+</body>
+</html>
+<script type="text/javascript">
+var btn1=document.getElementById("btn1");
+var btn2=document.getElementById("btn2");
+var btn3=document.getElementById("btn3");
+var btn4=document.getElementById("btn4");
+var btn5=document.getElementById("btn5");
+btn1.onclick=function()
+{
+	window.scrollBy(0,10);
+}
+var timer="";
+btn2.onclick=function()
+{
+	timer=setInterval(
+	function()
+	{
+		window.scrollBy(0,10)
+	}
+	,100);
+}
+btn3.onclick=function()
+{
+	
+	window.scrollTo(0,document.body.scrollHeight);
+}
+btn4.onclick=function()
+{
+	window.scrollTo(0,0);
+}
+btn5.onclick=function()
+{
+	clearInterval(timer);
+}
+</script>

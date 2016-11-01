@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text" id="y" maxlength="4" value=""/>年
+<input type="text" id="m" maxlength="2" value=""/>月
+<input type="text" id="d" maxlength="2" value=""/>日
+<input type="button" value="判断" onClick="judge()"/>
+</body>
+</html>
+<script type="text/javascript">
+//获取控件
+var y=document.getElementById("y")
+var m=document.getElementById("m")
+var d=document.getElementById("d")
+function judge()
+{
+	var year=y.value;
+	var month=m.value;
+	var day=d.value;
+	//判断输入的值是否为空
+	if(year.length!=0&&month.length!=0&&day.length!=0)
+	{
+		//判断输入的日期是否为数值
+		if(!isNaN(year)&&!isNaN(month)&&!isNaN(day))
+		{
+			//判断输入的年份是否正确
+			if(year>2016||year<1900)
+			{alert("请输入正确的年份")}
+			else if(month<1||month>12)
+			{alert("请输入正确的月份")}
+			else if(month==1||month==3||month==5||month==7||month==8||month==10||month==12)
+			{
+				if(day>31||day<1)
+				{alert("请输入正确的天数")}
+			}
+			else if(month==4||month==6||month==9||month==11)
+			{
+				if(day>30||day<1)
+				{alert("请输入正确的天数")}
+			}
+			else if(month==2)
+			{
+				if((year%4==0&&year%100!=0)||year%400==0)
+				{
+					if(day>29||day<1)
+					{alert("请输入正确的天数")}
+				}
+				else{
+						if(day>28||day<1)
+						{alert("请输入正确的天数")}
+					}
+			}
+			
+			
+		}
+		else{alert("输入的日期不能为字符")}
+	}
+	else
+	{
+		alert("输入的日期不能为空")
+	}
+}
+</script>

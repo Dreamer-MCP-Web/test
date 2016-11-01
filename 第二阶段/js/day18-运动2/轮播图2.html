@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#outer{position: absolute;left: 300px;top: 200px;width: 680px;height:344px;border: 2px solid red;overflow: hidden}
+			#inner{position: absolute;height: 344px;}
+			img{list-style: none;width: 680px;height: 344px;float: left;}
+			#btn{position: absolute;left:530px;top: 500px;}
+			#btn div{float: left;width: 20px;height: 20px;border-radius: 50%;background: #CCCCCC;margin: 20px;font-size: 18px;line-height: 20px;text-align: center;cursor: pointer;}
+			#btn .active{background: yellow;}
+			#btn2 div{width: 40px;height: 40px;background: #CCCCCC;color: red;font-size: 30px;line-height: 40px;text-align: center;opacity: 0.5;cursor: pointer;}
+			.left{position: absolute;left: 300px;top: 360px;}
+			.right{position: absolute;left: 940px;top: 360px;}
+		</style>
+		<script src="../day17-运动/animate.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var outer=document.getElementById("outer");
+				var inner=document.getElementById("inner");
+				var imgs=document.getElementsByTagName("img");
+				var btn=document.getElementById("btn");
+				var div=btn.getElementsByTagName("div");		
+				var index=1;				
+				var imgWidth=imgs[0].offsetWidth;//一张图片的宽度
+				inner.style.width=imgWidth*imgs.length+"px";   //inner的宽度
+				var timer=setInterval(goLeft,2000);
+				for(var i=0;i<div.length;i++)
+				{
+					div[i].index=i;
+					div[i].onclick=function()  //为每个按钮添加点击事件
+					{	
+						clearInterval(timer);
+						move4(inner,{left:-imgWidth*this.index});
+						index=this.index+1;
+						timer=setInterval(goLeft,2000)
+						for(var j=0;j<div.length;j++)
+						{
+							div[j].className="";
+						}
+						this.className="active";
+					}
+				}
+				var btn2=document.getElementById("btn2");
+				var move=btn2.getElementsByTagName("div");
+				move[0].onclick=function() //向左移动一张图片
+				{
+					clearInterval(timer);
+					inner.style.left=inner.offsetLeft+imgWidth+"px";
+					index=index-1;
+					console.log(index);					
+					if(index==0)
+					{
+						//move4(inner,{left:-index*imgWidth});
+						inner.style.left=inner.offsetLeft-(imgs.length-1)*imgWidth+"px";
+						index=imgs.length-1;
+						//console.log(222)
+					}
+					timer=setInterval(goLeft,2000);
+					for(var j=0;j<div.length;j++)
+					{
+						div[j].className="";
+					}
+					
+					div[index-1].className="active";
+				}
+				move[1].onclick=function()
+				{
+					clearInterval(timer);
+					inner.style.left=inner.offsetLeft-imgWidth+"px";	
+					index=index+1;
+					index=index==imgs.length?1:index;
+					if(index==1)
+					{
+						inner.style.left=0;
+					}
+					timer=setInterval(goLeft,2000);
+					for(var j=0;j<div.length;j++)
+					{
+						div[j].className="";
+					}
+					console.log(index);
+					div[index-1].className="active";
+				}
+				function goLeft()
+				{
+					if(index==imgs.length)
+					{
+						index=1;
+						inner.style.left=0;
+					}
+					
+					for(var i=0;i<div.length;i++)
+					{
+						div[i].className="";
+					}
+					console.log(index);
+					var lIndex=index==imgs.length-1?0:index;//index=图片数量减-1时，即滑动到最后一张图片时，让index=0；
+					div[lIndex].className="active";	
+					move4(inner,{left:-index*imgWidth});
+					index++;
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="inner">
+				<img src="../day14/images/1.jpg"/>
+				<img src="../day14/images/2.jpg"/>
+				<img src="../day14/images/3.jpg"/>
+				<img src="../day14/images/4.jpg"/>
+				<img src="../day14/images/1.jpg"/>
+			</div>			
+		</div>
+		<div id="btn">
+			<div class="active">1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		<div id="btn2">
+			<div class="left"><</div>
+			<div class="right">></div>
+		</div>
+	</body>
+</html>

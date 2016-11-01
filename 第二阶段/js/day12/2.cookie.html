@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*for(var i=0;i<150;i++)
+			{
+				var d=new Date();
+				d.setDate(d.getDate()+10);
+				document.cookie="id"+i+"=1-"+i+";expires="+d;
+			}*/
+			function setCookie(name,value,n)
+			{
+				var d=new Date();
+				d.setDate(d.getDate()+n);
+				document.cookie=name+"="+value+";expires="+d;
+			}
+			setCookie("xxh","520",100);
+			function getCookie(name)
+			{
+				var arr=document.cookie.split("; ");
+				var n;
+				for(var i=0;i<arr.length;i++)
+				{
+					if(arr[i].indexOf(name)!=-1)
+					{
+						n=i;
+						break;
+					}
+				}
+				alert(arr[n].split("=")[1]);
+			}
+			getCookie("xxh");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

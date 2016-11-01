@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{margin:0 auto;padding: 0;}
+		div{height: 500px;width: 80%;border: 1px solid green;font-size:100px;}
+		ul{position: fixed;right: 0;top: 300px;background: red;width: 100px;height:180px;display: none;}
+		li{list-style: none;text-align: center;}
+		li a{display: block;height: 30px;width: 100px;line-height: 30px;}
+		li:hover{background: greenyellow;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			var oul=document.getElementsByTagName("ul")[0];
+			var lis=document.getElementsByTagName("a");
+			document.onscroll=function()
+			{
+				var top=document.body.scrollTop||document.documentElement.scrollTop;
+				if(top>1000)
+				{
+					oul.style.display="block";
+				}
+				else{oul.style.display="none"}
+			}
+			var arr=["食品","衣服","首饰","家电","数码","家具"];
+			for(var i=0;i<lis.length;i++)
+			{
+				lis[i].index=i;
+				lis[i].onmouseover=function()
+				{
+					this.innerHTML=arr[this.index];
+				}
+				lis[i].onmouseout=function()
+				{
+					this.innerHTML=this.index+1;
+				}
+			}
+		}
+	</script>
+	<body>
+		<div id="floor1">1</div>
+		<div id="floor2">2</div>
+		<div id="floor3">3</div>
+		<div id="floor4">4</div>
+		<div id="floor5">5</div>
+		<div id="floor6">6</div>
+		<ul>
+			<li><a href="#floor1">1</a></li>
+			<li><a href="#floor2">2</a></li>
+			<li><a href="#floor3">3</a></li>
+			<li><a href="#floor4">4</a></li>
+			<li><a href="#floor5">5</a></li>
+			<li><a href="#floor6">6</a></li>
+		</ul>
+	</body>
+</html>

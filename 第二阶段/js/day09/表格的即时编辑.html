@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function()
+		{
+			//获取控件
+			var otab=document.getElementById("tab1");
+			var txt=document.getElementById("txt1");
+			var btn1=document.getElementById("btn1");
+			btn1.onclick=function()
+			{
+				//获取文本框中值并转换为小写
+				var ctxt=txt.value.toLowerCase();
+				//把输入的多个字符转换为数组保存起来
+				var arr=ctxt.split(" ");
+				//循环表格中的每个姓名
+				for(var i=0;i<otab.tBodies[0].rows.length;i++)
+				{
+					//重置表格的背景颜色
+					otab.tBodies[0].rows[i].style.background="";
+					//获取表格中的姓名并转换为小写
+					var cname=otab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+					//循环比较每个输入的字符
+					for(var j=0;j<arr.length;j++)
+					{
+						if(cname.search(arr[j])!=-1&&arr[j]!="")
+						{
+							otab.tBodies[0].rows[i].style.background="yellow";//如果找到了则把这行背景变为黄色
+						}
+					}
+				}
+			}
+		}
+	</script>
+	<body>
+		<input type="text" name="txt1" id="txt1" value="" />
+		<input type="button" name="btn1" id="btn1" value="搜索" />
+		<table id="tab1" border="1" cellspacing="0" width="300" height="300">
+			<thead>
+				<td>编号</td>
+				<td>名字</td>
+				<td>年龄</td>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>张李四</td>
+					<td>21</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>王五</td>
+					<td>23</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>刘六</td>
+					<td>24</td>
+				</tr>	
+				<tr>
+					<td>5</td>
+					<td>晨曦</td>
+					<td>18</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</body>
+</html>

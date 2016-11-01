@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+div{
+		float:left;
+		margin:10px;
+		}
+	#div1{
+		width:100px; 
+		height:150px; 
+		background:red;
+		}
+	#div2{
+		width:300px; 
+		height:300px; 
+		background:blue;
+		}
+	#div3{
+		width:200px; 
+		height:200px; 
+		background:green;
+		display:inline;
+		}
+</style>
+</head>
+
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+
+
+<input type="button" value="获取1" onClick="getvalue(odiv1,'background-color')" id="odiv1"/>
+<input type="button" value="获取2" onClick="getvalue(odiv2,'width')" id="odiv2"/>
+<input type="button" value="获取3" onClick="getvalue(odiv3,'width')" id="odiv3"/>
+
+</body>
+</html>
+<script type="text/javascript">
+//获取控件名
+	var odiv1=document.getElementById("div1");
+	var odiv2=document.getElementById("div2");
+	var odiv3=document.getElementById("div3");
+
+	
+function getvalue(obj,name)
+{	
+	if(obj.currentStyle)
+	{
+		alert(obj.currentStyle[name])//兼容IE
+	}
+	else alert(getComputedStyle(obj,false)[name]);//兼容火狐和谷歌
+	
+}
+
+</script>

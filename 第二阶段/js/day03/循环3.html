@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>循环3</title>
+<script type="text/javascript">
+	/*for(j=0;j<4;j++)
+	{
+		for(i=0;i<10;i++)
+		{
+			document.write("*");
+		}
+		document.write("<br/>");
+	}*/
+	/*for(i=0;i<5;i++)
+	{
+		for(j=4;j>=i;j--)
+		{
+			document.write("*");
+		}
+		document.write("<br/>");
+	}*/
+	/*for(i=0;i<5;i++)
+	{
+		for(j=0;j<=i+j;j++)
+		{
+			document.write("*");
+		}
+	}*/
+	/*for(var i=0;i<=4;i++)
+	{
+		for(j=0;j<=4-i;j++)
+		{
+			document.write("&nbsp;");
+		}
+		
+		for(k=4;k>=4-i;k--)
+		{
+			document.write("*");
+		}
+	document.write("<br/>");
+	}*/
+	for(i=0;i<4;i++)
+	{
+		for(j=4;j>i;j--)
+		{
+			document.write("&nbsp;");
+		}
+		
+		for(k=1;k<=2*i+1;k++)
+		{
+			document.write("*");
+		}
+		document.write("<br/>");
+		
+		
+	}
+	for(i=0;i<4;i++)
+	{
+		for(j=0;j<=i+1;j++)
+		{
+			document.write("&nbsp;");
+		}
+		
+		for(k=5;k>=2*i+1;k--)
+		{
+			document.write("*");
+		}
+		document.write("<br/>");
+		
+	}
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var txt=document.getElementById("txt");
+				var span =document.getElementById("span1");
+				//文本内容改变即触发事件
+				/*txt.oninput=function()
+				{
+					//获取输入的字符的长度
+					var num=txt.value.length;
+					span.innerHTML="还能输入"+(10-num)+"个字"
+				}*/
+				//文本内容改变并且失去元素的焦点
+				txt.onchange=function()
+				{
+					//获取输入的字符的长度
+					var num=txt.value.length;
+					span.innerHTML="还能输入"+(10-num)+"个字"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<textarea id="txt" maxlength="10"></textarea><span id="span1">还能输入10个字
+			
+		</span>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		//邮编  6位数字
+			/*var pattern=/^[0-9]\d{5}$/;
+			var str="123456";
+			alert(pattern.test(str));*/
+			//压缩包
+			/*var pattern=//;
+			var str="12450@qq.com.cn.ss";
+			alert(pattern.test(str));*/
+			//身份证
+			var pattern=/^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
+			var str="123456q!";
+			alert(pattern.test(str));
+			//
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

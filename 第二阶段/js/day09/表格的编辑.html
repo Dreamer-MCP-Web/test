@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border='1' width="300px"  id="tab">
+			<thead>
+				<tr>
+					<td>姓名</td>
+					<td>年龄</td>
+					<td>性别</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="txt">大傻12</td>
+					<td>12</td>
+					<td>女</td>
+				</tr>
+				<tr>
+					<td class="txt">二傻11d</td>
+					<td>13</td>
+					<td>男</td>
+				</tr>
+	            <tr>
+					<td class="txt">三傻abc</td>
+					<td>14</td>
+					<td>女</td>
+				</tr>
+				<tr>
+					<td class="txt">小傻hff</td>
+					<td>15</td>
+					<td>男</td>
+				</tr>
+			</tbody>
+	</body>
+	<script>
+             var oTd = document.getElementsByTagName("td");
+    for(var i=3;i<oTd.length;i++){
+        oTd[i].index = i;
+        oTd[i].onclick = function(){
+            var a = this.index;
+            var oInput = document.createElement("input");
+    
+            oInput.value = this.innerHTML;
+            this.innerHTML = "";  //使原来td里的内容消失。
+            this.appendChild(oInput);
+            oInput.focus();   //让input获取焦点
+//  
+//          oInput.onclick = function(e){
+//              e.stopPropagation();
+//          }                                  //阻止事件冒泡；
+            oInput.onblur = function(){
+                oTd[a].innerHTML = this.value;
+            }
+        }
+    }
+	</script>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script type="text/javascript">
+
+//数值递加
+var i=0;
+function getnum()
+{
+	i++;
+	document.getElementById("num").value=i;
+}
+//将定时器赋值给变量
+var timer;
+//启动定时器
+function timerstart()
+{	clearInterval(timer);
+	timer=setInterval("getnum()",100)
+}
+//停止定时器
+function timerstop()
+{
+	clearInterval(timer);
+}
+//定时器归零
+function timerclear()
+{
+	i=0;
+	timerstop();
+	document.getElementById("num").value=i;
+}
+</script>
+<body>
+<input type="text" value="0" id="num"/>
+<input type="button" value="开始" onClick="timerstart()"/>
+<input type="button" value="停止" onClick="timerstop()"/>
+<input type="button" value="清零" onClick="timerclear()"/>
+
+</body>
+</html>

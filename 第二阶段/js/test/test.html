@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#banner{width: 100%;height: 900px;overflow: hidden;}
+			#banner img{width: 100%;height: 900px;}
+			#title{height: 70px;width: 96%;background: #ccc;list-style: none;padding-left: 2%;padding-right:2% ;}
+			#title li{float: left;width: 24%;font-size: 30px;line-height: 70px;text-align: center;border-left:1px solid #008000 ;}
+			li:hover{background: pink;}
+			#div1,#div2,#div3,#div4{width: 100%;height: 800px;}
+			#div{position: absolute;top: 970px;}
+		</style>
+		<script src="cookie.js"></script>
+		<script type="text/javascript">
+			window.onload=function()
+			{
+				var txt4=document.getElementById("txt4");
+				if(getCookie("person"))
+				{
+					var str=eval(getCookie("person"));
+					console.log(str);
+					txt4.value=str;
+					//console.log(str)
+					//console.log(typeof(str));
+				}
+				var banner=document.getElementById("banner");
+				var oul=document.getElementById("title");
+				var div1=document.getElementById("div1");
+				var div2=document.getElementById("div2");
+				var div3=document.getElementById("div3");
+				var div4=document.getElementById("div4");
+				var div=document.getElementById("div");
+				var timer;
+				//延时加载
+				/*setTimeout(function(){										
+					var min=970-oul.offsetHeight-div1.offsetHeight;
+					timer=setInterval(function(){
+						var height;
+						var top;
+						height=banner.offsetHeight-10;
+						top=div.offsetTop-10;
+						console.log(height);
+						banner.style.height=height+"px";
+						div.style.top=top+"px";
+						if(height<=min)
+						{
+							clearInterval(timer);
+						}
+					},30)
+					//console.log(banner.offsetHeight);
+				},3000)*/
+				//切换题目
+				var li=document.getElementsByTagName("li");
+				var _top=div1.offsetHeight;//div的高度
+				var _top2=div.offsetTop;//div原来的定位值
+				for(var i=0;i<li.length;i++)
+				{
+					li[i].index=i;
+					li[i].onclick=function()
+					{													
+						div.style.top=_top2-((this.index+1)*_top)+"px";
+						//console.dir(div.style.offsettop);
+					}
+				}
+				//单词翻转
+				var txt1=document.getElementById("txt1");
+				var txt2=document.getElementById("txt2");
+				var btn2=document.getElementById("btn1");
+				btn1.onclick=function()
+				{
+					var word=txt1.value;
+					var arr=word.split(" ");//转为数组
+					for(var i=0;i<arr.length;i++)
+					{
+						var str=arr[i];
+						var Array=str.split("");
+						for(var j=0;j<Array.length/2;j++)//循环数组中的每个单词并翻转
+						{																					
+							var temp;
+							temp=Array[j];							
+							Array[j]=Array[Array.length-1-j];
+							Array[Array.length-j-1]=temp;
+							arr[i]=Array.join("");							
+							//console.log(arr[i]);
+						}						
+					}
+					txt2.value=arr.join(" ");
+				}
+				
+				
+				
+				
+				
+				
+				//cookie
+				
+				var txt3=document.getElementById("txt3");
+				var txt4=document.getElementById("txt4");
+				var btn2=document.getElementById("btn2");
+				btn2.onclick=function()
+				{
+					//获取输入的值
+					var cook=txt3.value;
+					setCookie("person",cook,10);//存入cookie					
+				}
+				//数组去重
+				var txt5=document.getElementById("txt5");
+				var txt6=document.getElementById("txt6");
+				var btn=document.getElementById("btn3");
+				btn3.onclick=function()
+				{
+					//获取输入的值
+					var str=txt5.value;
+					var arr=str.split(",");//转换为数组
+					var str2="";//输出的字符串
+					var count=0;//出现的次数					
+					var a=arr[0];//从第一个元素开始查询					
+					for(var i=0;i<arr.length;i++)
+					{
+						//判断循环输出值和比对值是否相同
+						if(a==arr[i])       
+						{
+							count++;//记录相同次数
+						}else
+						{
+							str2+=a+":"+count+",";//把统计相同的次数和值保存到字符串中
+							
+							
+							a=arr[i];//把比较不相同值赋值给初始比较值变量
+							count=1;//重置统计次数的，从1开始
+						}
+					}
+					
+					//将最后一次的比对追加输出字符串之后
+					str2+=a+":"+count;
+					txt6.value=str2;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="banner">
+			<img src="bg3.gif"/>
+		</div>
+		<ul id="title">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li style="border-right: 1px solid #008000;">4</li>			
+		</ul>
+		<div id="div">
+			<div id="div1">
+				<h2>第一题</h2>
+				<p></p>
+			</div>
+			<div id="div2">
+				<h2>第二题</h2>
+				输入英文单词：<input type="text" id="txt1"/>
+				<input type="button" value="翻转" id="btn1"/><br /><br />
+				翻转后的结果为：<input type="text" id="txt2"/>
+			</div>
+			<div id="div3">
+				<h2>第三题</h2>
+				输入一个对象：<input type="text" id="txt3"/>
+				<input type="button" value="存入cookie" id="btn2"/><br /><br />
+				输出为：<input type="text" id="txt4"/>
+			</div>
+			<div id="div4">
+				<h2>第四题</h2>
+				输入数组：<input type="text" id="txt5"/>
+				<input type="button" value="去重" id="btn3"/><br /><br />
+				输出为：<input type="text" id="txt6"/>
+			</div>
+		</div>
+		
+	</body>
+</html>
